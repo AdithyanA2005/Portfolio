@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
 import SectionWrapper from "../SectionWrapper";
@@ -39,16 +40,21 @@ export default function HomeSection({ }: Props) {
           <img className="rounded-full h-48 w-48" src={imageUrl} />
 
           {/* Job title */}
-          <h2 className="text-[1rem] uppercase tracking-[0.3rem] text-gray-400">{jobTitle}</h2>
+          <h2 className="text-[1rem] text-center uppercase tracking-[0.3rem] text-gray-400">{jobTitle}</h2>
 
           {/* Typewriter text animation */}
-          <h1 className="text-4xl text-yellow-500">
+          <h1 className="text-4xl text-center text-yellow-500">
             <span>{typerText}</span>
             <Cursor cursorColor="#F7AB0A" />
           </h1>
 
           {/* Nav Links */}
-          <nav className="flex gap-4 mt-3">
+          <motion.nav 
+            initial={{ marginTop: 200, opacity: 0}}
+            whileInView={ {marginTop: 12, opacity: 1 }}
+            transition={{duration: 1}}
+            className="flex gap-2 text-center flex-wrap md:gap-4 max-w-screen-sm justify-evenly overflow-x-auto"
+          >
             {navLinks.map((navLink) => (
               <Link 
                 key={navLink.url} 
@@ -57,7 +63,7 @@ export default function HomeSection({ }: Props) {
                 {navLink.title}
               </Link>
             ))}
-          </nav>
+          </motion.nav>
         </div>
       </div>
     </SectionWrapper>

@@ -24,11 +24,11 @@ export default function Navbar({ }: Props) {
           initial={{ x: -300, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          className="flex gap-6 justify-between items-center h-full "
+          className="flex gap-1 sm:gap-6 justify-between items-center h-full px-1 overflow-x-auto"
         >
           {navLinks.map((navLink) => (
-            <li>
-              <Link key={navLink.url} href={navLink.url} className="px-2.5 py-2 rounded-lg text-xs uppercase tracking-widest text-gray-300 hover:text-yellow-500 font-semibold ease transition-all outline-none hover:ring hover:ring-yellow-500 focus-visible:ring focus-visible:animate-bounce focus-visible:ring-yellow-500">
+            <li key={navLink.url} >
+              <Link href={navLink.url} className="px-2.5 py-2 rounded-lg text-xs uppercase tracking-widest text-gray-300 hover:text-yellow-500 font-semibold ease transition-all outline-none hover:ring hover:ring-yellow-500 focus-visible:ring focus-visible:animate-bounce focus-visible:ring-yellow-500">
                 {navLink.title}
               </Link>
             </li>
@@ -39,7 +39,6 @@ export default function Navbar({ }: Props) {
         <motion.span
           initial={{ x: 500, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          // whileHover={{ marginRight: 10 }}
           transition={{ duration: 1 }}
         >
           <Link href={resumeDownloadLink} className="hidden md:block text-sm uppercase hover:scale-110 transition-all first-letter:text-xl tracking-wider px-5 py-2 font-bold text-yellow-500 hover:text-yellow-400 rounded-full outline-none focus:ring-1 ring-yellow-500">
