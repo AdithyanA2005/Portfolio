@@ -53,7 +53,7 @@ export default function HomeSection({ }: Props) {
             initial={{ marginTop: 200, opacity: 0}}
             whileInView={ {marginTop: 12, opacity: 1 }}
             transition={{duration: 1}}
-            className="flex gap-2 text-center flex-wrap md:gap-4 max-w-screen-sm justify-evenly overflow-x-auto"
+            className="flex gap-2 text-center flex-wrap md:gap-4 max-w-screen-sm justify-evenly"
           >
             {navLinks.map((navLink) => (
               <Link 
