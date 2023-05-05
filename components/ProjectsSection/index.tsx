@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import SectionWrapper from "../SectionWrapper";
 import SectionHeading from "../SectionHeading";
+import SkewRect from "../SkewRect";
 
 type Props = {};
 
@@ -12,7 +13,7 @@ export default function ProjectsSection({ }: Props) {
       <div className="h-full flex flex-col max-w-7xl mx-auto">
         <SectionHeading title="Projects" />
 
-        <div className="py-3 flex-1 sm:flex-none flex gap-3 w-full overflow-x-auto snap-x snap-mandatory">
+        <div className="z-10 py-3 flex-1 sm:flex-none flex gap-3 w-full overflow-x-auto snap-x snap-mandatory">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((item) => (
             <div className="flex flex-col bg-stone-800 h-full min-w-full sm:min-w-[22rem] rounded-xl snap-center">
               {/* The preview image of app */}
@@ -51,6 +52,8 @@ export default function ProjectsSection({ }: Props) {
           ))}
         </div>
       </div>
+
+      <SkewRect from="left" />
     </SectionWrapper>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import SectionWrapper from "../SectionWrapper";
 import SectionHeading from "../SectionHeading";
 import SkillItem from "./SkillItem";
+import SkewRect from "../SkewRect";
 
 type Props = {};
 
@@ -36,13 +37,15 @@ const skills: Skill[] = [
 export default function SkillsSection({ }: Props) {
   return (
     <SectionWrapper id="skills">
-      <div className="h-full flex flex-col max-w-7xl mx-auto">
+      <div className="z-10 h-full flex flex-col max-w-7xl mx-auto">
         <SectionHeading title="Skills" />
 
-        <div className="flex items-center justify-evenly flex-wrap overflow-y-auto gap-4 md:gap-7">
+        <div className="z-[inherit] flex items-center justify-evenly flex-wrap overflow-y-auto gap-4 md:gap-7">
           {skills.map((skill) => <SkillItem src={skill.icon} alt={skill.name} percentage={skill.percentage} />)}
         </div>
       </div>
+
+      <SkewRect from="right" />
     </SectionWrapper>
   );
 };

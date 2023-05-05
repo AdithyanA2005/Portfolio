@@ -2,13 +2,14 @@ import React from "react";
 import SectionWrapper from "../SectionWrapper";
 import Link from "next/link";
 import { navLinks } from "@/utils/navigation";
+import SkewRect from "../SkewRect";
 
 type Props = {};
 
 export default function Footer({ }: Props) {
   return (
     <SectionWrapper id="footer">
-      <footer className="absolute bottom-0 w-full max-w-7xl left-1/2 -translate-x-1/2 rounded-lg bg-stone-800">
+      <footer className="z-10 absolute bottom-0 w-full max-w-7xl left-1/2 -translate-x-1/2 rounded-lg bg-stone-800">
         <div className="w-full p-4 md:py-8">
 
           <div className="flex flex-col items-center gap-4">
@@ -27,6 +28,8 @@ export default function Footer({ }: Props) {
           </div>
         </div>
       </footer>
+
+      <SkewRect from="right" />
     </SectionWrapper>
   );
 };
