@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
 import SectionWrapper from "../SectionWrapper";
+import { navLinks } from "@/utils/navigation";
 
 type Props = {}
 
@@ -17,13 +18,8 @@ export default function HomeSection({ }: Props) {
     "<FullStackDeveloper />"
   ];
 
-  // Navigations links for different section of the website
-  const navLinks = [
-    { title: "About", url: "#about" },
-    { title: "Skills", url: "#skills" },
-    { title: "Projects", url: "#projects" },
-    { title: "Experience", url: "#experience" },
-  ];
+  // Navigations links for different section of the website except home page
+  const homeNavLinks = navLinks.filter(link => link.title !== "Home");
 
   // Typewriter text which keeps chaning according to given text
   const [typerText] = useTypewriter({ words: typerTexts, loop: true, delaySpeed: 2000 });
@@ -55,7 +51,7 @@ export default function HomeSection({ }: Props) {
             transition={{duration: 1}}
             className="flex gap-2 text-center flex-wrap md:gap-4 max-w-screen-sm justify-evenly"
           >
-            {navLinks.map((navLink) => (
+            {homeNavLinks.map((navLink) => (
               <Link 
                 key={navLink.url} 
                 href={navLink.url} 

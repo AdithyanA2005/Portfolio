@@ -1,18 +1,11 @@
 import React from "react";
 import SectionWrapper from "../SectionWrapper";
 import Link from "next/link";
+import { navLinks } from "@/utils/navigation";
 
 type Props = {};
 
 export default function Footer({ }: Props) {
-  const navLinks = [
-    { title: "Home", url: "#home" },
-    { title: "About", url: "#about" },
-    { title: "Skills", url: "#skills" },
-    { title: "Projects", url: "#projects" },
-    { title: "Experience", url: "#experience" },
-  ];
-
   return (
     <SectionWrapper id="footer">
       <footer className="absolute bottom-0 w-full max-w-7xl left-1/2 -translate-x-1/2 rounded-lg bg-stone-800">

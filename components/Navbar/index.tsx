@@ -1,20 +1,12 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { navLinks } from "@/utils/navigation";
 
 type Props = {};
 
 export default function Navbar({ }: Props) {
   // TODO: Fetch data from cdn
   const resumeDownloadLink = "link-to-resume";
-
-  // Navigations links for different section of the website
-  const navLinks = [
-    { title: "Home", url: "#home" },
-    { title: "About", url: "#about" },
-    { title: "Skills", url: "#skills" },
-    { title: "Projects", url: "#projects" },
-    { title: "Experience", url: "#experience" },
-  ];
 
   return (
     <header className="fixed top-0 z-40 h-16 w-full bg-inherit opacity-70 backdrop-blur-lg border-b border-yellow-500">
