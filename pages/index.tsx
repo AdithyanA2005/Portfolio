@@ -4,6 +4,7 @@ import HomeSection from "../components/HomeSection";
 import AboutSection from "../components/AboutSection";
 import SkillsSection from '../components/SkillsSection'
 import ProjectsSection from '../components/ProjectsSection'
+import Footer from '../components/Footer'
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
       {/* <ContactSection /> */}
       {/* Footer */}
       {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
