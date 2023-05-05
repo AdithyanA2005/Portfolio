@@ -2,6 +2,7 @@ import Head from "next/head";
 import Navbar from "../components/Navbar";
 import HomeSection from "../components/HomeSection";
 import AboutSection from "../components/AboutSection";
+import SkillsSection from '../components/SkillsSection'
 
 export default function Home() {
   return (
@@ -13,10 +14,8 @@ export default function Home() {
       <Navbar />
       <HomeSection />
       <AboutSection />
+      <SkillsSection />
 
-
-      {/* Skills Section */}
-      {/* <SkillsSection /> */}
 
       {/* Experience Section */}
       {/* <ExperienceSection /> */}
