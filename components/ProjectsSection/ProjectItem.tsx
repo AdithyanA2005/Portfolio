@@ -1,6 +1,8 @@
-import Link from "next/link";
-import Image from "next/image";
 import React from "react";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {
   imgSrc: string;
@@ -36,7 +38,7 @@ export default function ProjectItem({ imgSrc, title, desc, tags, githubLink, liv
           {/* Github repo */}
           {githubLink && (
             <Link href={githubLink} target="_blank" className="flex gap-1.5 items-center text-indigo-300">
-              <Image src="/github.svg" alt="Github" height={20} width={20} />
+              <FontAwesomeIcon icon={faGithub} size="lg" />
               <span>View github repository</span>
             </Link>
           )}
@@ -44,7 +46,7 @@ export default function ProjectItem({ imgSrc, title, desc, tags, githubLink, liv
           {/* Live Demo */}
           {liveLink && (
             <Link href={liveLink} target="_blank" className="flex gap-2 ml-0.5 items-center text-indigo-300">
-              <Image src="/openlink.svg" alt="Link" height={17} width={15.5} />
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
               <span>View live app</span>
             </Link>
           )}
