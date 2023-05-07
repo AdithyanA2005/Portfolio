@@ -15,29 +15,29 @@ type Props = {
 
 export default function ProjectItem({ imgSrc, title, desc, tags, githubLink, liveLink }: Props) {
   return (
-    <div className="flex md:gap-5 flex-col md:flex-row items-center justify-center overflow-y-auto bg-stone-800 md:bg-transparent min-w-full rounded-xl snap-center">
+    <div className="min-w-full flex md:gap-5 flex-col xl:flex-row items-center justify-center overflow-y-auto border-2 md:border-none border-yellow-500 md:bg-transparent rounded-xl snap-center">
       {/* The preview image of app */}
-      <img src={imgSrc} className="w-full md:max-w-xs lg:max-w-md max-h-80 md:h-auto rounded-t-[inherit] md:rounded-lg object-cover" />
+      <img src={imgSrc} className="object-contain md:max-h-80 xl:max-h-72 w-auto rounded-t-[inherit] md:rounded-lg " />
 
-      <div className="p-5 md:p-0 flex flex-col flex-1 justify-evenly gap-3.5">
+      <div className="p-5 md:p-0 flex flex-col flex-1 justify-evenly gap-4">
         {/* App title */}
-        <h1 className="uppercase font-semibold text-yellow-500 text-lg lg:text-xl tracking-wider">{title}</h1>
+        <h1 className="uppercase font-semibold md:text-center text-yellow-500 text-lg sm:text-xl xl:text-2xl tracking-wider">{title}</h1>
 
         {/* App tags */}
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap md:justify-center gap-1.5 ">
           {tags.map((tag) =>
-            <span className="px-2 py-1 text-xs font-semibold tracking-wider rounded-md text-gray-50 bg-gray-700">{tag}</span>
+            <span className="px-2 py-1 text-xs lg:text-sm font-semibold tracking-wider rounded-md text-gray-50 bg-gray-700">{tag}</span>
           )}
         </div>
 
         {/* App description */}
-        <p className="text-gray-300 tracking-wider">{desc}</p>
+        <p className="text-gray-300 tracking-wide md:text-center md:leading-7 lg:leading-8 lg:text-[1rem]">{desc}</p>
 
         {/* App links */}
-        <div className="mt-1 flex justify-between gap-1.5">
+        <div className="mt-1 flex flex-col sm:flex-row justify-between gap-1">
           {/* Github repo */}
           {githubLink && (
-            <Link href={githubLink} target="_blank" className="flex gap-1.5 items-center text-indigo-300">
+            <Link href={githubLink} target="_blank" className="flex gap-1.5 items-center text-gray-300 hover:text-yellow-500">
               <FontAwesomeIcon icon={faGithub} size="lg" />
               <span>View github repository</span>
             </Link>
@@ -45,7 +45,7 @@ export default function ProjectItem({ imgSrc, title, desc, tags, githubLink, liv
 
           {/* Live Demo */}
           {liveLink && (
-            <Link href={liveLink} target="_blank" className="flex gap-2 ml-0.5 items-center text-indigo-300">
+            <Link href={liveLink} target="_blank" className="flex gap-2 ml-0.5 items-center text-gray-300 hover:text-yellow-500">
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
               <span>View live app</span>
             </Link>
