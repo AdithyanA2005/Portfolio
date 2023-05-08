@@ -45,7 +45,7 @@ export default function ProjectsSection({ }: Props) {
           {/* Snap container containing projects */}
           <div
             ref={snapContainerRef}
-            className="flex gap-3 max-h-full h-screen w-full overflow-y-hidden overflow-x-auto snap-x snap-mandatory"
+            className="scrollbar-hide flex gap-3 max-h-full h-screen w-full overflow-y-hidden overflow-x-auto snap-x snap-mandatory"
           >
             {projects.map((project) => (
               <ProjectItem
