@@ -27,16 +27,28 @@ export default defineType({
       type: "string",
     }),
     defineField({
-      name: "blog",
-      title: "Blog",
-      description: "Link to your blogging site",
-      type: "url",
-    }),
-    defineField({
       name: "about",
       title: "About",
       description: "Write about you",
       type: "string",
+    }),
+    defineField({
+      name: "specialBtnText",
+      title: "Special Text",
+      description: "Text for navbar special button",
+      type: "string",
+    }),
+    defineField({
+      name: "specialBtnUrl",
+      title: "Special Url",
+      description: "Url for navbar special button",
+      type: "url",
+    }),
+    defineField({
+      name: "specialBtnInNewTab",
+      title: "Special new tab",
+      description: "Open Special Url in new tab",
+      type: "boolean",
     }),
     defineField({
       name: "heroTyper",
