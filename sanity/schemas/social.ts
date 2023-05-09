@@ -14,6 +14,7 @@ export default defineType({
     defineField({
       name: "url",
       title: "Url",
+      description: "Link to your profile",
       type: "url",
     }),
   ],
