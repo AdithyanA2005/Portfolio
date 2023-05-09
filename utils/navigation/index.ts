@@ -1,7 +1,4 @@
-type NavLink = {
-  title: string;
-  url: string;
-};
+import { NavLink } from "./typings";
 
 export const navLinks: NavLink[] = [
   { title: "Home", url: "#home" },
