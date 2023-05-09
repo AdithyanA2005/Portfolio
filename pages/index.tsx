@@ -18,16 +18,6 @@ export default function Home() {
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />
-
-
-      {/* Experience Section */}
-      {/* <ExperienceSection /> */}
-
-
-      {/* Contact Me */}
-      {/* <ContactSection /> */}
-      {/* Footer */}
-      {/* <Footer /> */}
       <Footer />
     </div>
   );
