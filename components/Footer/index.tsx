@@ -16,7 +16,9 @@ export default function Footer({ }: Props) {
             <nav className="text-sm font-medium text-gray-400">
               <ul className="flex flex-wrap items-center gap-8">
                 {navLinks.map((navLink) => (
-                  <li><Link href={navLink.url}>{navLink.title}</Link></li>
+                  <li key={navLink.url}>
+                    <Link href={navLink.url}>{navLink.title}</Link>
+                  </li>
                 ))}
               </ul>
             </nav>
