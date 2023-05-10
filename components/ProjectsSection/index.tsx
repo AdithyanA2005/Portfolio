@@ -4,21 +4,14 @@ import SectionHeading from "../SectionHeading";
 import SkewRect from "../SkewRect";
 import ProjectItem from "./ProjectItem";
 import ScrollBtn from "./ScrollBtn";
+import { Project } from "@/utils/api/typings";
+import { urlForImage } from "@/sanity/lib/image";
 
-type Props = {};
+type Props = {
+  projects: Project[];
+};
 
-export default function ProjectsSection({ }: Props) {
-  const projects = [
-    { img: "/demoscreenshot.png", title: "Adiqr - Qrcode generator and scanner", desc: "This is a react web app which enables it's user to scan qrcodes to get the value embed within it or to generate qrcodes for a specified value with alterable qrcode sizes This is a react web app which enables it's user to scan qrcodes to get the value embed within it or to generate qrcodes for a specified value with alterable qrcode sizes This is a react web app which enables it's user to scan qrcodes to get the value embed within it or to generate qrcodes for a specified value with alterable qrcode sizes", tags: ["ReactJS", "StyledComponents", "Vercel", "Firebase", "TailwindCss"], githubLink: "#1", liveLink: "#" },
-    { img: "/demoscreenshot.png", title: "Adiqr - Qrcode generator and scanner", desc: "This is a react web app which enables it's user to scan qrcodes to get the value embed within it or to generate qrcodes for a specified value with alterable qrcode sizes", tags: ["ReactJS", "StyledComponents", "Vercel"], githubLink: "#2", liveLink: "#" },
-    { img: "/demoscreenshot.png", title: "Adiqr - Qrcode generator and scanner", desc: "This is a react web app which enables it's user to scan qrcodes to get the value embed within it or to generate qrcodes for a specified value with alterable qrcode sizes", tags: ["ReactJS", "StyledComponents", "Vercel"], githubLink: "#3", liveLink: "#" },
-    { img: "/demoscreenshot.png", title: "Adiqr - Qrcode generator and scanner", desc: "This is a react web app which enables it's user to scan qrcodes to get the value embed within it or to generate qrcodes for a specified value with alterable qrcode sizes", tags: ["ReactJS", "StyledComponents", "Vercel"], githubLink: "#4", liveLink: "#" },
-    { img: "/demoscreenshot.png", title: "Adiqr - Qrcode generator and scanner", desc: "This is a react web app which enables it's user to scan qrcodes to get the value embed within it or to generate qrcodes for a specified value with alterable qrcode sizes", tags: ["ReactJS", "StyledComponents", "Vercel"], githubLink: "#5", liveLink: "#" },
-    { img: "/demoscreenshot.png", title: "Adiqr - Qrcode generator and scanner", desc: "This is a react web app which enables it's user to scan qrcodes to get the value embed within it or to generate qrcodes for a specified value with alterable qrcode sizes", tags: ["ReactJS", "StyledComponents", "Vercel"], githubLink: "#6", liveLink: "#" },
-    { img: "/demoscreenshot.png", title: "Adiqr - Qrcode generator and scanner", desc: "This is a react web app which enables it's user to scan qrcodes to get the value embed within it or to generate qrcodes for a specified value with alterable qrcode sizes", tags: ["ReactJS", "StyledComponents", "Vercel"], githubLink: "#7", liveLink: "#" },
-    { img: "/demoscreenshot.png", title: "Adiqr - Qrcode generator and scanner", desc: "This is a react web app which enables it's user to scan qrcodes to get the value embed within it or to generate qrcodes for a specified value with alterable qrcode sizes", tags: ["ReactJS", "StyledComponents", "Vercel"], githubLink: "#8", liveLink: "#" },
-    { img: "/demoscreenshot.png", title: "Adiqr - Qrcode generator and scanner", desc: "This is a react web app which enables it's user to scan qrcodes to get the value embed within it or to generate qrcodes for a specified value with alterable qrcode sizes", tags: ["ReactJS", "StyledComponents", "Vercel"], githubLink: "#9", liveLink: "#" },
-  ];
+export default function ProjectsSection({ projects }: Props) {
 
   // Reference to the div containing different projects
   const snapContainerRef = useRef<HTMLDivElement | null>(null);
@@ -49,11 +42,11 @@ export default function ProjectsSection({ }: Props) {
           >
             {projects.map((project) => (
               <ProjectItem
-                key={project.githubLink}
-                imgSrc={project.img}
+                key={project._id}
+                src={urlForImage(project.image).url()}
                 title={project.title}
-                desc={project.desc}
-                tags={project.tags}
+                description={project.summary}
+                skills={project.technologies}
                 githubLink={project.githubLink}
                 liveLink={project.liveLink}
               />

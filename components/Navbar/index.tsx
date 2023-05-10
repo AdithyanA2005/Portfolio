@@ -2,12 +2,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { navLinks } from "@/utils/navigation";
 
-type Props = {};
+type Props = {
+  specialBtnText: string;
+  specialBtnLink: string;
+  specialBtnInNewTab: boolean;
+};
 
-export default function Navbar({ }: Props) {
-  // TODO: Fetch data from cdn
-  const resumeDownloadLink = "link-to-resume";
-
+export default function Navbar({ specialBtnText, specialBtnLink, specialBtnInNewTab }: Props) {
   return (
     <header className="fixed top-0 z-40 h-16 w-full bg-inherit opacity-70 backdrop-blur-lg border-b border-yellow-500">
       <nav className="px-5 h-full max-w-7xl mx-auto flex justify-center md:justify-between items-center ">
@@ -27,14 +28,18 @@ export default function Navbar({ }: Props) {
           ))}
         </motion.ul>
 
-        {/* Download Resume Btn */}
+        {/* Special Button */}
         <motion.span
           initial={{ x: 500, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <Link href={resumeDownloadLink} className="hidden md:block text-sm uppercase hover:scale-110 transition-all first-letter:text-xl tracking-wider px-5 py-2 font-bold text-yellow-500 hover:text-yellow-400 rounded-full outline-none focus:ring-1 ring-yellow-500">
-            download resume
+          <Link
+            href={specialBtnLink}
+            target={specialBtnInNewTab ? "_blank" : ""}
+            className="hidden md:block text-sm uppercase hover:scale-110 transition-all first-letter:text-xl tracking-wider px-5 py-2 font-bold text-yellow-500 hover:text-yellow-400 rounded-full outline-none focus:ring-1 ring-yellow-500"
+          >
+            {specialBtnText}
           </Link>
         </motion.span>
       </nav>

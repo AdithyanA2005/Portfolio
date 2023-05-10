@@ -7,21 +7,14 @@ import BackgroundCircles from "./BackgroundCircles";
 import SectionWrapper from "../SectionWrapper";
 import { navLinks } from "@/utils/navigation";
 
-type Props = {}
+type Props = {
+  role: string;
+  imgSrc: string;
+  typerTexts: string[];
+};
 
-export default function HomeSection({ }: Props) {
-  // TODO: Fetch these dat from cdn
-  const jobTitle = "software engineer";
-  const imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGdxhi94Vy3IncxfKzo-eIhF2n-ez_D1MqVdlkW8lhHjlwK8N4xH2X94pBPl-Dl_QJDQk&usqp=CAU";
-  const typerTexts = [
-    "Hi, The name's Adithyan A",
-    "<FullStackDeveloper />"
-  ];
-
-  // Navigations links for different section of the website except home page
+export default function HomeSection({ role, imgSrc, typerTexts }: Props) {
   const homeNavLinks = navLinks.filter(link => link.title !== "Home");
-
-  // Typewriter text which keeps chaning according to given text
   const [typerText] = useTypewriter({ words: typerTexts, loop: true, delaySpeed: 2000 });
 
   return (
@@ -32,11 +25,11 @@ export default function HomeSection({ }: Props) {
         <div className="absolute flex flex-col gap-2 justify-center items-center rounded-full">
           {/* Avatar */}
           {/* TODO: Convert img to next/image */}
-          {/* <Image src={imageUrl} alt="hell" width="192" height="192" /> */}
-          <img className="rounded-full h-48 w-48" src={imageUrl} />
+          {/* <Image src={imgSrc} alt="hell" width="192" height="192" /> */}
+          <img className="rounded-full h-48 w-48" src={imgSrc} />
 
           {/* Job title */}
-          <h2 className="text-[1rem] text-center uppercase tracking-[0.3rem] text-gray-400">{jobTitle}</h2>
+          <h2 className="text-[1rem] text-center uppercase tracking-[0.3rem] text-gray-400">{role}</h2>
 
           {/* Typewriter text animation */}
           <h1 className="text-4xl text-center text-yellow-500">
