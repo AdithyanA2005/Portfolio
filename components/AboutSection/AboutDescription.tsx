@@ -5,7 +5,7 @@ type Props = {
   text: string;
 };
 
-export default function Description({ text }: Props) {
+export default function AboutDescription({ text }: Props) {
   return (
     <motion.p
       initial={{ x: 150, opacity: 0 }}

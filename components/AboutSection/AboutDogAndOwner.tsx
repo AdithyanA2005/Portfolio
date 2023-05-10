@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 type Props = {};
 
-export default function DogAndOwner({ }: Props) {
+export default function AboutDogAndOwner({ }: Props) {
   return (
     <>
       {/* Dog svg */}

@@ -6,9 +6,10 @@ import SkillsSection from '../components/SkillsSection'
 import ProjectsSection from '../components/ProjectsSection'
 import Footer from '../components/Footer'
 import { GetStaticProps } from "next";
-import { fetchPageInfo, fetchProjects, fetchSkills, fetchSocials } from "@/utils/api/fetch";
 import { PageInfo, Project, Skill, Social } from "@/utils/api/typings";
+import { fetchPageInfo, fetchProjects, fetchSkills, fetchSocials } from "@/utils/api/fetch";
 import { urlForImage } from "@/sanity/lib/image";
+import { navLinks } from "@/utils/navigation";
 
 type Props = {
   pageInfo: PageInfo;
@@ -25,15 +26,31 @@ export default function Home({ pageInfo, projects, socials, skills }: Props) {
       </Head>
 
       <Navbar
+        navLinks={navLinks}
         specialBtnText={pageInfo.specialBtnText}
         specialBtnLink={pageInfo.specialBtnUrl}
         specialBtnInNewTab={pageInfo.specialBtnInNewTab}
       />
 
-      <HomeSection role={pageInfo.role} imgSrc={urlForImage(pageInfo.heroImage).url()} typerTexts={pageInfo.heroTyper} />
-      <AboutSection aboutMe={pageInfo.about} imgSrc={urlForImage(pageInfo.aboutImage).url()} />
-      <SkillsSection skills={skills} />
-      <ProjectsSection projects={projects} />
+      <HomeSection
+        navLinks={navLinks.filter(link => link.title !== "Home")}
+        role={pageInfo.role}
+        imgSrc={urlForImage(pageInfo.heroImage).url()}
+        typerTexts={pageInfo.heroTyper}
+      />
+
+      <AboutSection
+        aboutMe={pageInfo.about}
+        imgSrc={urlForImage(pageInfo.aboutImage).url()}
+      />
+
+      <SkillsSection
+        skills={skills}
+      />
+
+      <ProjectsSection
+        projects={projects}
+      />
 
       <Footer />
     </div>

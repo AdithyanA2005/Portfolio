@@ -17,7 +17,9 @@ export default function SkillsSection({ skills }: Props) {
         <SectionHeading title="Skills" />
 
         <div className="z-[inherit] flex items-center justify-evenly flex-wrap overflow-y-auto gap-4 md:gap-7">
-          {skills.map((skill) => <SkillItem key={skill._id} src={urlForImage(skill.image).url()} alt={skill.title} percentage={skill.progress} />)}
+          {skills.map((skill) => (
+            <SkillItem key={skill._id} src={urlForImage(skill.image).url()} alt={skill.title} percentage={skill.progress} />
+          ))}
         </div>
       </div>
 

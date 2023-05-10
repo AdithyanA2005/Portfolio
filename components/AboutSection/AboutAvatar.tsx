@@ -5,7 +5,7 @@ type Props = {
   imageUrl: string;
 };
 
-export default function Avatar({ imageUrl }: Props) {
+export default function AboutAvatar({ imageUrl }: Props) {
   return (
     <motion.img
       initial={{ x: -150, opacity: 0 }}

@@ -7,7 +7,7 @@ type Props = {
   icon: "right" | "left";
 };
 
-export default function ScrollBtn({ icon, handleBtnClick }: Props) {
+export default function ProjectScrollBtn({ icon, handleBtnClick }: Props) {
   return (
     <button
       onClick={handleBtnClick}
