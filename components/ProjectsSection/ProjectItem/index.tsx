@@ -6,6 +6,7 @@ import ProjectItemTags from "./ProjectItemTags";
 import ProjectItemGithubLink from "./ProjectItemGithubLink";
 import ProjectItemLiveLink from "./ProjectItemLiveLink";
 import { Skill } from "@/utils/api/typings";
+import { motion } from "framer-motion";
 
 type Props = {
   imgSrc: string;
@@ -18,7 +19,12 @@ type Props = {
 
 export default function ProjectItem({ imgSrc, title, description, skills, githubLink, liveLink }: Props) {
   return (
-    <div className="min-w-full flex md:gap-5 flex-col xl:flex-row items-center justify-center overflow-y-auto border-2 md:border-none border-yellow-500 md:bg-transparent rounded-xl snap-center">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 2 }}
+      className="min-w-full flex md:gap-5  flex-col xl:flex-row items-center justify-center overflow-y-auto border-2 md:border-none border-yellow-500 md:bg-transparent rounded-xl snap-center"
+    >
       <ProjectItemImage src={imgSrc} />
 
       <div className="p-5 md:p-0 flex flex-col flex-1 justify-evenly gap-4">
@@ -31,6 +37,6 @@ export default function ProjectItem({ imgSrc, title, description, skills, github
           {liveLink && <ProjectItemLiveLink url={liveLink} />}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

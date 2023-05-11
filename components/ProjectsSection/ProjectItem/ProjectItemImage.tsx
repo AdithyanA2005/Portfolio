@@ -12,7 +12,7 @@ export default function ProjectItemImage({ src }: Props) {
       alt="Skill icon"
       width={300}
       height={300}
-      className="object-cover md:max-h-72 xl:max-h-72 h-full w-auto rounded-t-[inherit] md:rounded-lg "
+      className="object-cover md:max-h-72 h-full w-full md:w-auto rounded-t-[inherit] md:rounded-lg "
     />
   );
 };
