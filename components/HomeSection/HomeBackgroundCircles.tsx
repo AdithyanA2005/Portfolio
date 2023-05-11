@@ -15,12 +15,12 @@ export default function HomeBackgroundCircles({ }: Props) {
       className="relative aspect-square w-full min-w-[670px] max-w-[800px] flex justify-center items-center"
     >
       {/* The ping animated ring */}
-      <div className="h-[30%] w-[30%] animate-ping absolute border border-indigo-300 rounded-full" />
+      <div className="h-[30%] w-[30%] animate-ping absolute border border-sky-400 rounded-full" />
 
       {/* The main rings */}
       <div className="animate-pulse h-[40%] w-[40%] absolute border-2 border-gray-600 rounded-full" />
       <div className="animate-pulse h-[60%] w-[60%] absolute border-2 border-gray-400 rounded-full" />
-      <div className="animate-pulse h-[80%] w-[80%] absolute border-2 border-indigo-300 rounded-full" />
+      <div className="animate-pulse h-[80%] w-[80%] absolute border-2 border-sky-400 rounded-full" />
       <div className="animate-pulse h-full w-full absolute border-2 border-yellow-500 rounded-full" />
     </motion.div>
   );

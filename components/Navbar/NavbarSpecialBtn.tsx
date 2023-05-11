@@ -18,7 +18,7 @@ export default function NavbarSpecialBtn({ href, text, inNewTab }: Props) {
       <Link
         href={href}
         target={inNewTab ? "_blank" : ""}
-        className="hidden md:block text-sm uppercase hover:scale-110 transition-all first-letter:text-xl tracking-wider px-5 py-2 font-bold text-yellow-500 hover:text-yellow-400 rounded-full outline-none focus:ring-1 ring-yellow-500"
+        className="hidden md:block text-sm uppercase hover:scale-110 transition-all first-letter:text-yellow-400 first-letter:text-lg tracking-wider px-3 py-1 font-bold text-yellow-500 hover:text-yellow-400 rounded-xl outline-none focus:ring ring-yellow-500"
       >
         {text}
       </Link>

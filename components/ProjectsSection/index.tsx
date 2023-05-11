@@ -36,7 +36,7 @@ export default function ProjectsSection({ projects }: Props) {
       <div className="h-full flex flex-col max-w-7xl mx-auto">
         <SectionHeading title="Projects" />
 
-        <div className="z-10 relative max-h-full flex items-center overflow-x-visible overflow-y-hidden">
+        <div className="z-10 relative xl:-mt-24 p-1 max-h-full flex items-center overflow-x-visible overflow-y-hidden">
           <ProjectScrollBtn
             icon="left"
             handleBtnClick={scrollToPrevious}

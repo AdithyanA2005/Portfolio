@@ -19,7 +19,7 @@ export default function HomeNavLinks({ links }: Props) {
         <Link
           key={navLink.url}
           href={navLink.url}
-          className="uppercase text-xs first-letter:text-[1rem] first-letter:font-bold px-3 py-2 rounded-2xl tracking-widest hover:text-gray-300 focus:text-gray-300 text-gray-400 font-medium outline-none hover:ring hover:ring-indigo-500 focus-visible:ring focus-visible:animate-bounce focus-visible:ring-yellow-500 transition-all">
+          className="uppercase text-xs first-letter:text-[1rem] first-letter:font-bold px-3 py-1.5 rounded-xl tracking-widest hover:text-gray-300 focus:text-gray-300 text-gray-400 font-medium outline-none hover:ring hover:ring-sky-500 focus-visible:ring focus-visible:animate-bounce focus-visible:ring-yellow-500 transition-all">
           {navLink.title}
         </Link>
       ))}

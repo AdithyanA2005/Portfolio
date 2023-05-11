@@ -9,9 +9,8 @@ type Props = {};
 export default function Footer({ }: Props) {
   return (
     <SectionWrapper id="footer">
-      <footer className="z-10 absolute bottom-0 w-full max-w-7xl left-1/2 -translate-x-1/2 rounded-lg bg-stone-800">
+      <footer className="z-10 absolute bottom-0 w-full max-w-7xl left-1/2 -translate-x-1/2 rounded-lg bg-black bg-opacity-40 -800">
         <div className="w-full p-4 md:py-8">
-
           <div className="flex flex-col items-center gap-4">
             <nav className="text-sm font-medium text-gray-400">
               <ul className="flex flex-wrap items-center gap-8">
@@ -26,7 +25,7 @@ export default function Footer({ }: Props) {
 
           <div>
             <hr className="border-gray-700 sm:mx-auto my-6 lg:my-8" />
-            <span className="block text-sm text-center text-gray-400">© 2023 <a href="https://flowbite.com/" className="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
+            <span className="block text-sm text-center text-gray-400">Created By Adithyan A</span>
           </div>
         </div>
       </footer>

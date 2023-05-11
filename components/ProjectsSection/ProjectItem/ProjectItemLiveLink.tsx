@@ -12,7 +12,7 @@ export default function ProjectItemLiveLink({ url }: Props) {
     <Link
       href={url}
       target="_blank"
-      className="flex gap-2 ml-0.5 items-center text-gray-300 hover:text-yellow-500"
+      className="flex gap-2 ml-0.5 text-lg items-center text-gray-300 hover:text-yellow-500"
     >
       <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
       <span>View live app</span>

@@ -26,7 +26,7 @@ export default function ProjectItem({ imgSrc, title, description, skills, github
         <ProjectItemTags tags={skills} />
         <ProjectItemDescription text={description} />
 
-        <div className="mt-1 flex flex-col sm:flex-row justify-between gap-1">
+        <div className="mt-1 p-1 flex flex-col sm:flex-row justify-between gap-1">
           {githubLink && <ProjectItemGithubLink url={githubLink} />}
           {liveLink && <ProjectItemLiveLink url={liveLink} />}
         </div>
