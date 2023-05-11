@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 type Props = {
   src: string;
@@ -6,9 +7,12 @@ type Props = {
 
 export default function ProjectItemImage({ src }: Props) {
   return (
-    <img
+    <Image
       src={src}
-      className="object-contain md:max-h-80 xl:max-h-72 w-auto rounded-t-[inherit] md:rounded-lg "
+      alt="Skill icon"
+      width={300}
+      height={300}
+      className="object-cover md:max-h-72 xl:max-h-72 h-full w-auto rounded-t-[inherit] md:rounded-lg "
     />
   );
 };
