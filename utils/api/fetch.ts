@@ -1,5 +1,4 @@
-import { useRouter } from "next/router";
-import { PageInfo, Project, Skill, Social } from "./typings";
+import { Blog, PageInfo, Project, Skill, Social } from "./typings";
 
 // http://localhost:3000 while developement
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -28,12 +27,19 @@ export async function fetchSkills() {
   return skills;
 };
 
-
 // Fetch socials from next api
 export async function fetchSocials() {
   const response = await fetch(`${baseUrl}/api/getSocials`);
   const data = await response.json();
   const socials: Social[] = data.socials;
   return socials;
+};
+
+// Fetch list of blogs from next api
+export async function fetchBlogs() {
+  const response = await fetch(`${baseUrl}/api/getBlogs`);
+  const data = await response.json();
+  const blogs: Blog[] = data.blogs;
+  return blogs;
 };
 

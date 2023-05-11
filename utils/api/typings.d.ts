@@ -1,3 +1,41 @@
+// MY BLOG
+export interface Blog {
+  title: string;
+  url: string;
+  brief: string;
+  coverImage: string;
+  dateAdded: Date;
+};
+
+
+// HASHNODE BLOG SERVICE
+interface HashnodePost {
+  title: string;
+  slug: string;
+  cuid: string;
+  brief: string;
+  coverImage: string;
+  dateAdded: string;
+};
+
+interface HashnodePublication {
+  posts: HashnodePost[];
+};
+
+interface HashnodeUser {
+  publication: HashnodePublication;
+};
+
+interface HashnodeData {
+  user: HashnodeUser;
+};
+
+export interface HashnodeResponse {
+  data: HashnodeData;
+};
+
+
+// SANITY CDN
 interface SanityBody {
   _cretedAt: string;
   _id: string;

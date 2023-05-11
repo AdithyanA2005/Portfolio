@@ -6,19 +6,21 @@ import SkillsSection from '../components/SkillsSection'
 import ProjectsSection from '../components/ProjectsSection'
 import Footer from '../components/Footer'
 import { GetStaticProps } from "next";
-import { PageInfo, Project, Skill, Social } from "@/utils/api/typings";
-import { fetchPageInfo, fetchProjects, fetchSkills, fetchSocials } from "@/utils/api/fetch";
+import { Blog, PageInfo, Project, Skill, Social } from "@/utils/api/typings";
+import { fetchBlogs, fetchPageInfo, fetchProjects, fetchSkills, fetchSocials } from "@/utils/api/fetch";
 import { urlForImage } from "@/sanity/lib/image";
 import { navLinks } from "@/utils/navigation";
+import BlogsSection from "@/components/BlogsSection";
 
 type Props = {
   pageInfo: PageInfo;
   projects: Project[];
   socials: Social[];
   skills: Skill[];
+  blogs: Blog[];
 };
 
-export default function Home({ pageInfo, projects, socials, skills }: Props) {
+export default function Home({ pageInfo, projects, socials, skills, blogs }: Props) {
   return (
     <div className="bg-gray-1000 h-screen snap-y snap-mandatory scroll-smooth overflow-x-hidden overflow-y-auto">
       <Head>
@@ -52,23 +54,29 @@ export default function Home({ pageInfo, projects, socials, skills }: Props) {
         projects={projects}
       />
 
+      <BlogsSection
+        blogs={blogs}
+      />
+
       <Footer />
     </div>
   );
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo = await fetchPageInfo();
-  const projects = await fetchProjects();
-  const socials = await fetchSocials();
-  const skills = await fetchSkills();
+  const pageInfo: PageInfo = await fetchPageInfo();
+  const projects: Project[] = await fetchProjects();
+  const socials: Social[] = await fetchSocials();
+  const skills: Skill[] = await fetchSkills();
+  const blogs: Blog[] = await fetchBlogs();
 
   return {
     props: {
       pageInfo,
       projects,
       socials,
-      skills
+      skills,
+      blogs
     },
     revalidate: 10,
   };
