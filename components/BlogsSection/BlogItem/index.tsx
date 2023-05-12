@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import BlogCoverImage from "./BlogCoverImage";
 
 type Props = {
@@ -16,7 +17,12 @@ export default function BlogItem({ url, title, brief, imgSrc, dateAdded }: Props
   const dateStr = date.toLocaleDateString("en-US", dateOptions);
 
   return (
-    <div className="relative group bg-black bg-opacity-40 backdrop-blur-md rounded-xl">
+    <motion.div
+      initial={{ y: 100, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="relative group bg-black bg-opacity-40 backdrop-blur-md rounded-xl"
+    >
       {/* Blog Image */}
       <BlogCoverImage src={imgSrc} />
 
@@ -29,14 +35,14 @@ export default function BlogItem({ url, title, brief, imgSrc, dateAdded }: Props
 
       {/* BLOG HOVER COVER */}
       <div className="absolute inset-0 hidden group-hover:grid place-items-center bg-black bg-opacity-50 backdrop-blur-sm rounded-[inherit]">
-        <Link 
-          href={url} 
-          target="_blank" 
-          className="grid place-items-center p-5 rounded-full text-white hover:text-yellow-500 bg-gray-700 bg-opacity-60 aspect-square text-sm uppercase font-semibold"
+        <Link
+          href={url}
+          target="_blank"
+          className="grid place-items-center p-5 rounded-full text-white hover:text-yellow-500 bg-gray-700 bg-opacity-60 aspect-square text-sm hover:scale-105 uppercase font-semibold"
         >
           View Blog
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };

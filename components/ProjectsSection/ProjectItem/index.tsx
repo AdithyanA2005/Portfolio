@@ -20,9 +20,9 @@ type Props = {
 export default function ProjectItem({ imgSrc, title, description, skills, githubLink, liveLink }: Props) {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 2 }}
+      initial={{ y:100, opacity: 0 }}
+      whileInView={{ y:0, opacity: 1 }}
+      transition={{ duration: 1 }}
       className="min-w-full flex md:gap-5  flex-col xl:flex-row items-center justify-center overflow-y-auto border-2 md:border-none border-yellow-500 md:bg-transparent rounded-xl snap-center"
     >
       <ProjectItemImage src={imgSrc} />
