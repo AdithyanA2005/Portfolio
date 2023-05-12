@@ -33,6 +33,12 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "blogsUrl",
+      title: "Blogs Url",
+      description: "Link to blogging site",
+      type: "string",
+    }),
+    defineField({
       name: "specialBtnText",
       title: "Special Text",
       description: "Text for navbar special button",

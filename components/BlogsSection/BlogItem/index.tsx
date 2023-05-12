@@ -29,7 +29,11 @@ export default function BlogItem({ url, title, brief, imgSrc, dateAdded }: Props
 
       {/* BLOG HOVER COVER */}
       <div className="absolute inset-0 hidden group-hover:grid place-items-center bg-black bg-opacity-50 backdrop-blur-sm rounded-[inherit]">
-        <Link href={url} target="_blank" className="grid place-items-center p-5 rounded-full text-white bg-gray-700 bg-opacity-60 aspect-square text-sm uppercase font-semibold">
+        <Link 
+          href={url} 
+          target="_blank" 
+          className="grid place-items-center p-5 rounded-full text-white hover:text-yellow-500 bg-gray-700 bg-opacity-60 aspect-square text-sm uppercase font-semibold"
+        >
           View Blog
         </Link>
       </div>

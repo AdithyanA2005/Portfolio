@@ -58,6 +58,7 @@ export interface PageInfo extends SanityBody {
   email: string;
   address: string;
   about: string;
+  blogsUrl: string;
   specialBtnText: string;
   specialBtnUrl: string;
   specialBtnInNewTab: boolean;

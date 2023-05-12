@@ -56,6 +56,7 @@ export default function Home({ pageInfo, projects, socials, skills, blogs }: Pro
 
       <BlogsSection
         blogs={blogs}
+        blogsLink={pageInfo.blogsUrl}
       />
 
       <Footer />
