@@ -71,6 +71,9 @@ const getStaticProps: GetStaticProps<Props> = async () => {
   const skills: Skill[] = await fetchSkills();
   const blogs: Blog[] = await fetchBlogs();
 
+  console.log(blogs)
+  console.log(pageInfo)
+
   return {
     props: {
       pageInfo,
