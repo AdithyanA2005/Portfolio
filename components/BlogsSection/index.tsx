@@ -9,8 +9,8 @@ import SkewRect from "../SkewRect";
 import { Blog } from "@/utils/api/typings";
 
 type Props = {
-  blogs: Blog[];
-  blogsLink: string;
+  blogs: Blog[] | undefined;
+  blogsLink: string | undefined;
 };
 
 export default function BlogsSection({ blogs, blogsLink }: Props) {
@@ -21,20 +21,20 @@ export default function BlogsSection({ blogs, blogsLink }: Props) {
 
         {/* Blogs Container */}
         <div className="z-[inherit] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 overflow-y-auto gap-4">
-          {blogs.map((blog, index) => (
+          {blogs?.map((blog, index) => (
             <BlogItem
               key={index}
-              url={blog.url}
-              title={blog.title}
-              brief={blog.brief}
-              imgSrc={blog.coverImage}
-              dateAdded={blog.dateAdded}
+              url={blog?.url}
+              title={blog?.title}
+              brief={blog?.brief}
+              imgSrc={blog?.coverImage}
+              dateAdded={blog?.dateAdded}
             />
           ))}
 
           {/* Link to blogging site */}
           <Link
-            href={blogsLink}
+            href={blogsLink ?? ""}
             target="_blank"
             className=" rounded-lg transition-all justify-center bg-black bg-opacity-50 hover:bg-opacity-60 flex items-center gap-1 hover:gap-1.5 text-gray-400 hover:text-yellow-500 text-lg p-2.5"
           >

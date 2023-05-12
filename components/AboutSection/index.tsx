@@ -7,8 +7,8 @@ import AboutDogAndOwner from "./AboutDogAndOwner";
 import SkewRect from "../SkewRect";
 
 type Props = {
-  imgSrc: string;
-  aboutMe: string;
+  imgSrc: string | undefined;
+  aboutMe: string | undefined;
 };
 
 export default function AboutSection({ imgSrc, aboutMe }: Props) {
@@ -18,8 +18,8 @@ export default function AboutSection({ imgSrc, aboutMe }: Props) {
         <SectionHeading title="about me" />
 
         <div className="z-[inherit] overflow-hidden pb-3 flex flex-col items-center md:flex-row gap-3 md:gap-5">
-          <AboutAvatar imageUrl={imgSrc} />
-          <AboutDescription text={aboutMe} />
+          <AboutAvatar imageUrl={imgSrc ?? ""} />
+          <AboutDescription text={aboutMe ?? ""} />
         </div>
       </div>
 

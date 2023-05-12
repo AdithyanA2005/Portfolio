@@ -8,9 +8,9 @@ import HomeNavLinks from "./HomeNavLinks";
 import { NavLink } from "@/utils/navigation/typings";
 
 type Props = {
-  role: string;
-  imgSrc: string;
-  typerTexts: string[];
+  role: string | undefined;
+  imgSrc: string | undefined;
+  typerTexts: string[] | undefined;
   navLinks: NavLink[];
 };
 
@@ -21,9 +21,9 @@ export default function HomeSection({ role, imgSrc, typerTexts, navLinks }: Prop
         <HomeBackgroundCircles />
 
         <div className="absolute flex flex-col gap-2 justify-center items-center rounded-full">
-          <HomeAvatar src={imgSrc} />
-          <HomeRole text={role} />
-          <HomeTyper texts={typerTexts} />
+          <HomeAvatar src={imgSrc ?? ""} />
+          <HomeRole text={role ?? ""} />
+          <HomeTyper texts={typerTexts ?? [""]} />
           <HomeNavLinks links={navLinks} />
         </div>
       </div>

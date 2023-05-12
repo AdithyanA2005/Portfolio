@@ -4,9 +4,9 @@ import { NavLink } from "@/utils/navigation/typings";
 
 type Props = {
   navLinks: NavLink[];
-  specialBtnText: string;
-  specialBtnLink: string;
-  specialBtnInNewTab: boolean;
+  specialBtnText?: string;
+  specialBtnLink?: string;
+  specialBtnInNewTab?: boolean;
 };
 
 export default function Navbar({ navLinks, specialBtnText, specialBtnLink, specialBtnInNewTab }: Props) {
@@ -15,9 +15,9 @@ export default function Navbar({ navLinks, specialBtnText, specialBtnLink, speci
       <nav className="px-5 h-full max-w-7xl mx-auto flex justify-center md:justify-between items-center ">
         <NavbarLinks links={navLinks} />
         <NavbarSpecialBtn
-          text={specialBtnText}
-          href={specialBtnLink}
-          inNewTab={specialBtnInNewTab}
+          text={specialBtnText || ""}
+          href={specialBtnLink || ""}
+          inNewTab={specialBtnInNewTab || true}
         />
       </nav>
     </header>

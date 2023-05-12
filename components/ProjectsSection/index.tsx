@@ -9,7 +9,7 @@ import { Project } from "@/utils/api/typings";
 import { urlForImage } from "@/sanity/lib/image";
 
 type Props = {
-  projects: Project[];
+  projects?: Project[];
 };
 
 export default function ProjectsSection({ projects }: Props) {
@@ -28,7 +28,7 @@ export default function ProjectsSection({ projects }: Props) {
   const scrollToPrevious = () => {
     snapContainerRef.current?.scrollBy({
       left: -snapContainerRef.current.offsetWidth,
-      behavior: 'smooth'
+      behavior: "smooth"
     });
   };
 
@@ -47,15 +47,15 @@ export default function ProjectsSection({ projects }: Props) {
             handleBtnClick={scrollToPrevious}
           />
           <div ref={snapContainerRef} className="scrollbar-hide flex gap-3 max-h-full h-screen w-full overflow-y-hidden overflow-x-auto snap-x snap-mandatory">
-            {projects.map((project) => (
+            {projects?.map((project) => (
               <ProjectItem
                 key={project._id}
-                imgSrc={urlForImage(project.image).url()}
-                title={project.title}
-                description={project.summary}
-                skills={project.technologies}
-                githubLink={project.githubLink}
-                liveLink={project.liveLink}
+                imgSrc={project.image ? urlForImage(project.image).url() : undefined}
+                title={project?.title}
+                description={project?.summary}
+                skills={project?.technologies}
+                githubLink={project?.githubLink}
+                liveLink={project?.liveLink}
               />
             ))}
           </div>

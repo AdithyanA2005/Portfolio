@@ -4,7 +4,7 @@ type Props = {
   from: "left" | "right";
 };
 
-export default function({ from }: Props) {
+export default function SkewRect({ from }: Props) {
   return (
     <div
       className={`${from === "left"
