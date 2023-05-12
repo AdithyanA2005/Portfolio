@@ -19,12 +19,7 @@ type Props = {
 
 export default function ProjectItem({ imgSrc, title, description, skills, githubLink, liveLink }: Props) {
   return (
-    <motion.div
-      initial={{ y:100, opacity: 0 }}
-      whileInView={{ y:0, opacity: 1 }}
-      transition={{ duration: 1 }}
-      className="min-w-full flex md:gap-5  flex-col xl:flex-row items-center justify-center overflow-y-auto border-2 md:border-none border-yellow-500 md:bg-transparent rounded-xl snap-center"
-    >
+    <div className="min-w-full flex md:gap-5  flex-col xl:flex-row items-center justify-center overflow-y-auto border-2 md:border-none border-yellow-500 md:bg-transparent rounded-xl snap-center">
       <ProjectItemImage src={imgSrc} />
 
       <div className="p-5 md:p-0 flex flex-col flex-1 justify-evenly gap-4">
@@ -37,6 +32,6 @@ export default function ProjectItem({ imgSrc, title, description, skills, github
           {liveLink && <ProjectItemLiveLink url={liveLink} />}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };

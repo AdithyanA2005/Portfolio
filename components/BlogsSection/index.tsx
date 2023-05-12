@@ -21,8 +21,9 @@ export default function BlogsSection({ blogs, blogsLink }: Props) {
 
         {/* Blogs Container */}
         <div className="z-[inherit] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 overflow-y-auto gap-4">
-          {blogs.map((blog) => (
+          {blogs.map((blog, index) => (
             <BlogItem
+              key={index}
               url={blog.url}
               title={blog.title}
               brief={blog.brief}

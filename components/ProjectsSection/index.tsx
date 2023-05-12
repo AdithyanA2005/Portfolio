@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { motion } from "framer-motion";
 import SectionWrapper from "../SectionWrapper";
 import SectionHeading from "../SectionHeading";
 import ProjectItem from "./ProjectItem";
@@ -36,7 +37,11 @@ export default function ProjectsSection({ projects }: Props) {
       <div className="h-full flex flex-col max-w-7xl mx-auto">
         <SectionHeading title="Projects" />
 
-        <div className="z-10 relative xl:-mt-24 p-1 max-h-full flex items-center overflow-x-visible overflow-y-hidden">
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="z-10 relative xl:-mt-24 p-1 max-h-full flex items-center overflow-x-visible overflow-y-hidden">
           <ProjectScrollBtn
             icon="left"
             handleBtnClick={scrollToPrevious}
@@ -58,7 +63,7 @@ export default function ProjectsSection({ projects }: Props) {
             icon="right"
             handleBtnClick={scrollToNext}
           />
-        </div>
+        </motion.div>
       </div>
 
       <SkewRect from="left" />
