@@ -13,7 +13,7 @@ import fetchProjects from "@/utils/api/fetch/fetchProjects";
 import fetchPageInfo from "@/utils/api/fetch/fetchPageInfo";
 import { urlForImage } from "@/sanity/lib/image";
 import { navLinks } from "@/utils/navigation";
-import { GetStaticProps, NextPage } from "next";
+import { GetStaticProps } from "next";
 import { Blog, PageInfo, Project, Skill, Social } from "@/utils/api/typings";
 
 type Props = {
@@ -28,7 +28,7 @@ export default function Home({ pageInfo, projects, socials, skills, blogs }: Pro
   return (
     <div className="bg-gray-1000 h-screen snap-y snap-mandatory scroll-smooth overflow-x-hidden overflow-y-auto">
       <Head>
-        <title>{pageInfo?.name ?? "Adithyan A"} - Portfolio</title>
+        <title>{(pageInfo?.name ?? "") + " - Portfolio"}</title>
       </Head>
 
       <Navbar
