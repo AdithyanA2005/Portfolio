@@ -33,4 +33,4 @@ export default function ProjectItem({ imgSrc, title, description, skills, github
       </div>
     </div>
   );
-};
+}

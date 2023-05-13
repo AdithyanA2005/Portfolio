@@ -5,8 +5,8 @@ import SectionHeading from "../SectionHeading";
 import ProjectItem from "./ProjectItem";
 import ProjectScrollBtn from "./ProjectScrollBtn";
 import SkewRect from "../SkewRect";
-import { Project } from "@/utils/api/typings";
 import { urlForImage } from "@/sanity/lib/image";
+import { Project } from "@/utils/api/typings";
 
 type Props = {
   projects?: Project[];
@@ -16,11 +16,11 @@ export default function ProjectsSection({ projects }: Props) {
   // Reference to the div containing different projects
   const snapContainerRef = useRef<HTMLDivElement | null>(null);
 
-  // Function to scroll to next project 
+  // Function to scroll to next project
   const scrollToNext = () => {
     snapContainerRef.current?.scrollBy({
       left: snapContainerRef.current.offsetWidth,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
@@ -28,7 +28,7 @@ export default function ProjectsSection({ projects }: Props) {
   const scrollToPrevious = () => {
     snapContainerRef.current?.scrollBy({
       left: -snapContainerRef.current.offsetWidth,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
@@ -41,12 +41,13 @@ export default function ProjectsSection({ projects }: Props) {
           initial={{ y: 100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          className="z-10 relative xl:-mt-24 p-1 max-h-full flex items-center overflow-x-visible overflow-y-hidden">
-          <ProjectScrollBtn
-            icon="left"
-            handleBtnClick={scrollToPrevious}
-          />
-          <div ref={snapContainerRef} className="scrollbar-hide flex gap-3 max-h-full h-screen w-full overflow-y-hidden overflow-x-auto snap-x snap-mandatory">
+          className="z-10 relative xl:-mt-24 p-1 max-h-full flex items-center overflow-x-visible overflow-y-hidden"
+        >
+          <ProjectScrollBtn icon="left" handleBtnClick={scrollToPrevious} />
+          <div
+            ref={snapContainerRef}
+            className="scrollbar-hide flex gap-3 max-h-full h-screen w-full overflow-y-hidden overflow-x-auto snap-x snap-mandatory"
+          >
             {projects?.map((project) => (
               <ProjectItem
                 key={project._id}
@@ -59,14 +60,11 @@ export default function ProjectsSection({ projects }: Props) {
               />
             ))}
           </div>
-          <ProjectScrollBtn
-            icon="right"
-            handleBtnClick={scrollToNext}
-          />
+          <ProjectScrollBtn icon="right" handleBtnClick={scrollToNext} />
         </motion.div>
       </div>
 
       <SkewRect from="left" />
     </SectionWrapper>
   );
-};
+}

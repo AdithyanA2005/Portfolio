@@ -8,7 +8,6 @@ type Props = {
 
 export default function AboutAvatar({ imageUrl }: Props) {
   return (
-
     <motion.div
       initial={{ x: -150, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
@@ -24,5 +23,4 @@ export default function AboutAvatar({ imageUrl }: Props) {
       />
     </motion.div>
   );
-};
-
+}

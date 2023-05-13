@@ -17,5 +17,5 @@ export default function ProjectItemLiveLink({ url }: Props) {
       <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
       <span>View live app</span>
     </Link>
-  )
+  );
 }

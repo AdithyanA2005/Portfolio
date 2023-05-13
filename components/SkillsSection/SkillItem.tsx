@@ -15,16 +15,15 @@ export default function SkillItem({ percentage, src, alt }: Props) {
       transition={{ duration: 1 }}
       className="group relative p-5 grid place-items-center bg-black bg-opacity-30 rounded-full"
     >
-      <Image
-        src={src ?? ""}
-        alt={alt ?? ""}
-        height="56"
-        width="56"
+      <Image 
+        src={src ?? ""} 
+        alt={alt ?? ""} 
+        height="56" 
+        width="56" 
       />
       <div className="hidden group-hover:grid absolute place-items-center bg-black bg-opacity-60 backdrop-blur-sm h-full w-full rounded-[inherit] font-bold text-xl text-gray-400">
         {percentage ?? ""}%
       </div>
     </motion.div>
   );
-};
-
+}

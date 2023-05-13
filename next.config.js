@@ -4,6 +4,6 @@ const nextConfig = {
     domains: ["cdn.sanity.io", "cdn.hashnode.com"],
   },
   reactStrictMode: true,
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

@@ -10,4 +10,4 @@ export default function ProjectItemTitle({ text }: Props) {
       {text}
     </h1>
   );
-};
+}

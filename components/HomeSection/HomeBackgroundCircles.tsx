@@ -3,15 +3,15 @@ import { motion } from "framer-motion";
 
 type Props = {};
 
-export default function HomeBackgroundCircles({ }: Props) {
+export default function HomeBackgroundCircles({}: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      whileInView={{ 
+      whileInView={{
         opacity: [0.1, 0.2, 0.4, 0.8, 0.1, 1.0],
         scale: [1.3, 1.5, 1.1, 1.6, 1],
       }}
-      transition={{duration: 2.5}}
+      transition={{ duration: 2.5 }}
       className="relative aspect-square w-full min-w-[670px] max-w-[800px] flex justify-center items-center"
     >
       {/* The ping animated ring */}
@@ -24,4 +24,4 @@ export default function HomeBackgroundCircles({ }: Props) {
       <div className="animate-pulse h-full w-full absolute border-2 border-yellow-500 rounded-full" />
     </motion.div>
   );
-};
+}

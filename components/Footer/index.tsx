@@ -1,12 +1,12 @@
 import React from "react";
-import SectionWrapper from "../SectionWrapper";
 import Link from "next/link";
-import { navLinks } from "@/utils/navigation";
+import SectionWrapper from "../SectionWrapper";
 import SkewRect from "../SkewRect";
+import { navLinks } from "@/utils/navigation";
 
 type Props = {};
 
-export default function Footer({ }: Props) {
+export default function Footer({}: Props) {
   return (
     <SectionWrapper id="footer">
       <footer className="z-10 absolute bottom-0 w-full max-w-7xl left-1/2 -translate-x-1/2 rounded-lg bg-black bg-opacity-40 -800">
@@ -33,4 +33,4 @@ export default function Footer({ }: Props) {
       <SkewRect from="left" />
     </SectionWrapper>
   );
-};
+}

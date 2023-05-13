@@ -5,4 +5,4 @@ import { PageInfo } from "../typings";
 export default async function fetchPageInfo(): Promise<PageInfo> {
   const pageInfo: PageInfo = await client.fetch<PageInfo>(pageInfoQuery);
   return pageInfo;
-};
+}

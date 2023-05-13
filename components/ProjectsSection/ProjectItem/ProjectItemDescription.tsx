@@ -10,4 +10,4 @@ export default function ProjectItemDescription({ text }: Props) {
       {text}
     </p>
   );
-};
+}

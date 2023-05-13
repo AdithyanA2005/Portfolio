@@ -3,8 +3,8 @@ import SectionWrapper from "../SectionWrapper";
 import SectionHeading from "../SectionHeading";
 import SkillItem from "./SkillItem";
 import SkewRect from "../SkewRect";
-import { Skill } from "@/utils/api/typings";
 import { urlForImage } from "@/sanity/lib/image";
+import { Skill } from "@/utils/api/typings";
 
 type Props = {
   skills: Skill[] | undefined;
@@ -31,4 +31,4 @@ export default function SkillsSection({ skills }: Props) {
       <SkewRect from="right" />
     </SectionWrapper>
   );
-};
+}

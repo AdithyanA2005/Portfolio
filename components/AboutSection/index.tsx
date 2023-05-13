@@ -27,4 +27,4 @@ export default function AboutSection({ imgSrc, aboutMe }: Props) {
       <AboutDogAndOwner />
     </SectionWrapper>
   );
-};
+}

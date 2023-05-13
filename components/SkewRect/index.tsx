@@ -13,4 +13,4 @@ export default function SkewRect({ from }: Props) {
         } absolute left-0 z-0 w-full h-[40vh] bg-opacity-60 bg-gray-700`}
     />
   );
-};
+}

@@ -1,20 +1,20 @@
 import Head from "next/head";
-import Navbar from "../components/Navbar";
-import HomeSection from "../components/HomeSection";
-import AboutSection from "../components/AboutSection";
-import SkillsSection from "../components/SkillsSection"
-import ProjectsSection from "../components/ProjectsSection"
-import BlogsSection from "../components/BlogsSection";
-import Footer from "../components/Footer"
-import { GetStaticProps } from "next";
-import { Blog, PageInfo, Project, Skill, Social } from "@/utils/api/typings";
+import Navbar from "@/components/Navbar";
+import HomeSection from "@/components/HomeSection";
+import AboutSection from "@/components/AboutSection";
+import SkillsSection from "@/components/SkillsSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import BlogsSection from "@/components/BlogsSection";
+import Footer from "@/components/Footer";
+import fetchBlogs from "@/utils/api/fetch/fetchBlogs";
+import fetchSkills from "@/utils/api/fetch/fetchSkills";
+import fetchSocials from "@/utils/api/fetch/fetchSocials";
+import fetchProjects from "@/utils/api/fetch/fetchProjects";
+import fetchPageInfo from "@/utils/api/fetch/fetchPageInfo";
 import { urlForImage } from "@/sanity/lib/image";
 import { navLinks } from "@/utils/navigation";
-import fetchPageInfo from "@/utils/api/fetch/fetchPageInfo";
-import fetchProjects from "@/utils/api/fetch/fetchProjects";
-import fetchSocials from "@/utils/api/fetch/fetchSocials";
-import fetchSkills from "@/utils/api/fetch/fetchSkills";
-import fetchBlogs from "@/utils/api/fetch/fetchBlogs";
+import { GetStaticProps, NextPage } from "next";
+import { Blog, PageInfo, Project, Skill, Social } from "@/utils/api/typings";
 
 type Props = {
   pageInfo: PageInfo;
@@ -28,7 +28,7 @@ export default function Home({ pageInfo, projects, socials, skills, blogs }: Pro
   return (
     <div className="bg-gray-1000 h-screen snap-y snap-mandatory scroll-smooth overflow-x-hidden overflow-y-auto">
       <Head>
-        <title>{pageInfo?.name} - Portfolio</title>
+        <title>{pageInfo?.name ?? "Adithyan A"} - Portfolio</title>
       </Head>
 
       <Navbar
@@ -39,7 +39,7 @@ export default function Home({ pageInfo, projects, socials, skills, blogs }: Pro
       />
 
       <HomeSection
-        navLinks={navLinks.filter(link => link.title !== "Home")}
+        navLinks={navLinks.filter((link) => link.title !== "Home")}
         role={pageInfo?.role}
         imgSrc={pageInfo?.heroImage ? urlForImage(pageInfo.heroImage).url() : undefined}
         typerTexts={pageInfo?.heroTyper}
@@ -50,23 +50,16 @@ export default function Home({ pageInfo, projects, socials, skills, blogs }: Pro
         imgSrc={pageInfo?.aboutImage ? urlForImage(pageInfo.aboutImage).url() : undefined}
       />
 
-      <SkillsSection
-        skills={skills ?? undefined}
-      />
+      <SkillsSection skills={skills ?? undefined} />
 
-      <ProjectsSection
-        projects={projects ?? undefined}
-      />
+      <ProjectsSection projects={projects ?? undefined} />
 
-      <BlogsSection
-        blogs={blogs ?? undefined }
-        blogsLink={pageInfo?.blogsUrl}
-      />
+      <BlogsSection blogs={blogs ?? undefined} blogsLink={pageInfo?.blogsUrl} />
 
       <Footer />
     </div>
   );
-};
+}
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
@@ -76,13 +69,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const blogs: Blog[] = await fetchBlogs();
 
   return {
-    props: {
-      pageInfo,
-      projects,
-      socials,
-      skills,
-      blogs
-    },
+    props: { pageInfo, projects, socials, skills, blogs },
     revalidate: 60,
   };
 };

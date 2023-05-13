@@ -47,4 +47,4 @@ export default function BlogsSection({ blogs, blogsLink }: Props) {
       <SkewRect from="right" />
     </SectionWrapper>
   );
-};
+}

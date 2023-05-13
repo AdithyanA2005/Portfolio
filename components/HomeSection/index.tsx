@@ -29,4 +29,4 @@ export default function HomeSection({ role, imgSrc, typerTexts, navLinks }: Prop
       </div>
     </SectionWrapper>
   );
-};
+}

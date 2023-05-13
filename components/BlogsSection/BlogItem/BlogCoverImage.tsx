@@ -15,4 +15,4 @@ export default function BlogCoverImage({ src }: Props) {
       className="rounded-t-[inherit] w-full max-h-52 object-cover object-bottom"
     />
   );
-};
+}

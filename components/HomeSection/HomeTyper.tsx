@@ -14,4 +14,4 @@ export default function HomeTyper({ texts }: Props) {
       <Cursor cursorColor="#F7AB0A" />
     </h1>
   );
-};
+}

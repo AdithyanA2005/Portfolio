@@ -13,8 +13,11 @@ type Props = {
 
 export default function BlogItem({ url, title, brief, imgSrc, dateAdded }: Props) {
   const date = new Date(dateAdded ?? "");
-  const dateOptions: Intl.DateTimeFormatOptions = { day: "numeric", month: "short", year: "numeric" };
-  const dateStr = date.toLocaleDateString("en-US", dateOptions);
+  const dateStr = date.toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 
   return (
     <motion.div
@@ -45,4 +48,4 @@ export default function BlogItem({ url, title, brief, imgSrc, dateAdded }: Props
       </div>
     </motion.div>
   );
-};
+}

@@ -2,11 +2,9 @@ import React from "react";
 import Image from "next/image";
 
 type Props = {
-  src: string; 
+  src: string;
 };
 
 export default function HomeAvatar({ src }: Props) {
-  return (
-    <Image src={src} alt="Adithyan A" width="192" height="192" className="rounded-full" />
-  );
-};
+  return <Image src={src} alt="Adithyan A" width="192" height="192" className="rounded-full" />;
+}

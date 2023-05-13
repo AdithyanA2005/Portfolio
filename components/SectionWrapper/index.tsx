@@ -6,10 +6,13 @@ type Props = {
   xPadding?: boolean;
 };
 
-export default function SectionWrapper({ id, xPadding = true,  children }: Props) {
+export default function SectionWrapper({ id, xPadding = true, children }: Props) {
   return (
-    <section id={id} className={`relative pt-16 h-full min-h-screen snap-start ${xPadding && "px-5"}`}>
+    <section
+      id={id}
+      className={`relative pt-16 h-full min-h-screen snap-start ${xPadding && "px-5"}`}
+    >
       {children}
     </section>
   );
-};
+}

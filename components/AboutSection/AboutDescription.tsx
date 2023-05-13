@@ -16,4 +16,4 @@ export default function AboutDescription({ text }: Props) {
       {text}
     </motion.p>
   );
-};
+}

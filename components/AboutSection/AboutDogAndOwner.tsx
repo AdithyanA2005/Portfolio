@@ -40,4 +40,4 @@ export default function AboutDogAndOwner({ }: Props) {
       </motion.div>
     </>
   );
-};
+}

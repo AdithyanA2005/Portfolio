@@ -1,6 +1,6 @@
-import createImageUrlBuilder from "@sanity/image-url"
-import { dataset, projectId } from "../env"
-import { SanityImage } from "@/utils/api/typings"
+import createImageUrlBuilder from "@sanity/image-url";
+import { dataset, projectId } from "../env";
+import { SanityImage } from "@/utils/api/typings";
 
 const imageBuilder = createImageUrlBuilder({
   projectId: projectId || "",
@@ -8,5 +8,5 @@ const imageBuilder = createImageUrlBuilder({
 });
 
 export const urlForImage = (source: SanityImage) => {
-  return imageBuilder?.image(source)
+  return imageBuilder?.image(source);
 };

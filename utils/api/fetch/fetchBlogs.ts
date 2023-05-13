@@ -14,7 +14,7 @@ export default async function fetchBlogs(): Promise<Blog[]> {
   const posts: HashnodePost[] = resJson.data.user.publication.posts;
 
   // Create a list of blogs with necessary fields in it
-  const blogs: Blog[] = posts.map(blog => {
+  const blogs: Blog[] = posts.map((blog) => {
     const url = `https://hashnode.com/post/${blog.cuid}/${blog.slug}`;
     const newBlog: Blog = {
       url: url,
@@ -27,4 +27,4 @@ export default async function fetchBlogs(): Promise<Blog[]> {
   });
 
   return blogs;
-};
+}

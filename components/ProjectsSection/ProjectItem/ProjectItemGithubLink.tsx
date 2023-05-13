@@ -18,4 +18,4 @@ export default function ProjectItemGithubLink({ url }: Props) {
       <span>View github repository</span>
     </Link>
   );
-};
+}

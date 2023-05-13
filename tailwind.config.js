@@ -9,8 +9,8 @@ module.exports = {
     extend: {
       colors: {
         gray: {
-          1000: "rgb(23, 23, 23)"
-        }
+          1000: "rgb(23, 23, 23)",
+        },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -19,4 +19,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};

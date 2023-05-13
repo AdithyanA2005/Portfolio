@@ -24,4 +24,4 @@ export default function NavbarSpecialBtn({ href, text, inNewTab }: Props) {
       </Link>
     </motion.span>
   );
-};
+}
