@@ -8,9 +8,13 @@ import BlogsSection from "../components/BlogsSection";
 import Footer from "../components/Footer"
 import { GetStaticProps } from "next";
 import { Blog, PageInfo, Project, Skill, Social } from "@/utils/api/typings";
-import { fetchBlogs, fetchPageInfo, fetchProjects, fetchSkills, fetchSocials } from "@/utils/api/fetch";
 import { urlForImage } from "@/sanity/lib/image";
 import { navLinks } from "@/utils/navigation";
+import fetchPageInfo from "@/utils/api/fetch/fetchPageInfo";
+import fetchProjects from "@/utils/api/fetch/fetchProjects";
+import fetchSocials from "@/utils/api/fetch/fetchSocials";
+import fetchSkills from "@/utils/api/fetch/fetchSkills";
+import fetchBlogs from "@/utils/api/fetch/fetchBlogs";
 
 type Props = {
   pageInfo: PageInfo;
@@ -64,15 +68,12 @@ export default function Home({ pageInfo, projects, socials, skills, blogs }: Pro
   );
 };
 
-const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
   const projects: Project[] = await fetchProjects();
   const socials: Social[] = await fetchSocials();
   const skills: Skill[] = await fetchSkills();
   const blogs: Blog[] = await fetchBlogs();
-
-  console.log(blogs)
-  console.log(pageInfo)
 
   return {
     props: {
@@ -82,6 +83,6 @@ const getStaticProps: GetStaticProps<Props> = async () => {
       skills,
       blogs
     },
-    revalidate: 10,
+    revalidate: 60,
   };
 };

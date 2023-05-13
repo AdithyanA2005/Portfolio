@@ -4,12 +4,12 @@ export interface Blog {
   url: string;
   brief: string;
   coverImage: string;
-  dateAdded: Date;
+  dateAdded: string;
 };
 
 
 // HASHNODE BLOG SERVICE
-interface HashnodePost {
+export interface HashnodePost {
   title: string;
   slug: string;
   cuid: string;

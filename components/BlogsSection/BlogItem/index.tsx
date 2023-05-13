@@ -8,13 +8,13 @@ type Props = {
   title: string | undefined;
   brief: string | undefined;
   imgSrc: string | undefined;
-  dateAdded: Date | undefined;
+  dateAdded: string | undefined;
 };
 
 export default function BlogItem({ url, title, brief, imgSrc, dateAdded }: Props) {
-  const date = dateAdded ? new Date(dateAdded) : undefined;
+  const date = new Date(dateAdded ?? "");
   const dateOptions: Intl.DateTimeFormatOptions = { day: "numeric", month: "short", year: "numeric" };
-  const dateStr = date?.toLocaleDateString("en-US", dateOptions);
+  const dateStr = date.toLocaleDateString("en-US", dateOptions);
 
   return (
     <motion.div
