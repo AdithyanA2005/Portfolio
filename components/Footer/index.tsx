@@ -30,7 +30,7 @@ export default function Footer({}: Props) {
         </div>
       </footer>
 
-      <SkewRect from="left" />
+      <SkewRect from="right" />
     </SectionWrapper>
   );
 }

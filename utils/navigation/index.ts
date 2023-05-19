@@ -6,4 +6,5 @@ export const navLinks: NavLink[] = [
   { title: "Skills", url: "#skills" },
   { title: "Projects", url: "#projects" },
   { title: "Blogs", url: "#blogs" },
+  { title: "Contact", url: "#contact" },
 ];

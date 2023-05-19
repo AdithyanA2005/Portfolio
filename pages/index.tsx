@@ -15,6 +15,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import { navLinks } from "@/utils/navigation";
 import { GetStaticProps } from "next";
 import { Blog, PageInfo, Project, Skill, Social } from "@/utils/api/typings";
+import ContactSection from "@/components/ContactSection";
 
 type Props = {
   pageInfo: PageInfo;
@@ -54,7 +55,16 @@ export default function Home({ pageInfo, projects, socials, skills, blogs }: Pro
 
       <ProjectsSection projects={projects ?? undefined} />
 
-      <BlogsSection blogs={blogs ?? undefined} blogsLink={pageInfo?.blogsUrl} />
+      <BlogsSection
+        blogs={blogs ?? undefined}
+        blogsLink={pageInfo?.blogsUrl}
+      />
+
+      <ContactSection
+        email={pageInfo?.email}
+        address={pageInfo?.address}
+        socials={socials ?? undefined}
+      />
 
       <Footer />
     </div>
