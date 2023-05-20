@@ -21,8 +21,8 @@ export default function BlogItem({ url, title, brief, imgSrc, dateAdded }: Props
 
   return (
     <motion.div
-      initial={{ y: 100, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
+      initial={{ scale: 0.8, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
       transition={{ duration: 1 }}
       className="relative group bg-black bg-opacity-40 backdrop-blur-md rounded-xl"
     >
@@ -31,9 +31,9 @@ export default function BlogItem({ url, title, brief, imgSrc, dateAdded }: Props
 
       {/* Blog Contents */}
       <div className="p-3 flex flex-col gap-2">
-        <h1 className="text-gray-300 text-xl">{title ?? ""}</h1>
+        <h1 className="text-gray-200 text-xl">{title ?? ""}</h1>
         <span className="text-gray-400 text-sm font-mono float-right">{dateStr ?? ""}</span>
-        <p className="text-gray-400">{brief ?? ""}</p>
+        <p className="text-gray-300">{brief ?? ""}</p>
       </div>
 
       {/* BLOG HOVER COVER */}
