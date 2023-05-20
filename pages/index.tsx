@@ -66,7 +66,11 @@ export default function Home({ pageInfo, projects, socials, skills, blogs }: Pro
         socials={socials ?? undefined}
       />
 
-      <Footer />
+      <Footer 
+        navLinks={navLinks} 
+        socials={socials ?? undefined}
+        email={pageInfo?.email}
+      />
     </div>
   );
 }

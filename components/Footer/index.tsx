@@ -1,32 +1,28 @@
 import React from "react";
-import Link from "next/link";
 import SectionWrapper from "../SectionWrapper";
 import SkewRect from "../SkewRect";
-import { navLinks } from "@/utils/navigation";
+import FooterNavLinks from "./FooterNavLinks";
+import { NavLink } from "@/utils/navigation/typings";
+import { Social } from "@/utils/api/typings";
+import FooterSocials from "./FooterSocials";
 
-type Props = {};
+type Props = {
+  navLinks: NavLink[];
+  socials: Social[] | undefined;
+  email: string | undefined;
+};
 
-export default function Footer({}: Props) {
+export default function Footer({ navLinks, socials, email }: Props) {
   return (
     <SectionWrapper id="footer">
-      <footer className="z-10 absolute bottom-0 w-full max-w-7xl left-1/2 -translate-x-1/2 rounded-lg bg-black bg-opacity-40 -800">
-        <div className="w-full p-4 md:py-8">
-          <div className="flex flex-col items-center gap-4">
-            <nav className="text-sm font-medium text-gray-400">
-              <ul className="flex flex-wrap items-center gap-8">
-                {navLinks.map((navLink) => (
-                  <li key={navLink.url}>
-                    <Link href={navLink.url}>{navLink.title}</Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
-
-          <div>
-            <hr className="border-gray-700 sm:mx-auto my-6 lg:my-8" />
-            <span className="block text-sm text-center text-gray-400">Created By Adithyan A</span>
-          </div>
+      <footer className="p-4 md:py-8 z-10 absolute bottom-0 w-full max-w-7xl left-1/2 -translate-x-1/2 rounded-lg bg-black bg-opacity-40">
+        <div className="1flex items-center justify-between w-full space-y-5">
+          <FooterNavLinks navLinks={navLinks} />
+          <FooterSocials socials={socials} emailLink={email ? `mailto:${email}` : undefined} />
+        </div>
+        <div>
+          <hr className="border-gray-700 sm:mx-auto my-6 " />
+          <span className="block text-sm text-center text-gray-400">Created By Adithyan A</span>
         </div>
       </footer>
 

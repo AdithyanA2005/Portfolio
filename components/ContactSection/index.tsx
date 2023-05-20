@@ -40,7 +40,7 @@ export default function ContactSection({ email, address, socials }: Props) {
             initial={{x: -200, opacity: 0}}
             whileInView={{x: 0, opacity: 1}}
             transition={{duration: 1}}
-            className="flex flex-col space-y-5 w-full max-w-2xl lg:max-w-[50%]"
+            className="flex flex-col items-center space-y-5 w-full max-w-2xl lg:max-w-[50%]"
           >
             <ContactHeading />
             <ContactInfo email={email} address={address} />
@@ -53,7 +53,7 @@ export default function ContactSection({ email, address, socials }: Props) {
             transition={{duration: 1}}
             noValidate={true}
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-4 p-5 w-full max-w-2xl rounded-xl bg-black bg-opacity-30"
+            className="flex flex-col gap-4 p-5 w-full md:max-w-2xl rounded-xl bg-black bg-opacity-30"
           >
             {/* Name Input Field */}
             <ContactInput
