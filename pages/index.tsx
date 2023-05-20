@@ -5,6 +5,7 @@ import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import BlogsSection from "@/components/BlogsSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import fetchBlogs from "@/utils/api/fetch/fetchBlogs";
 import fetchSkills from "@/utils/api/fetch/fetchSkills";
@@ -15,7 +16,6 @@ import { urlForImage } from "@/sanity/lib/image";
 import { navLinks } from "@/utils/navigation";
 import { GetStaticProps } from "next";
 import { Blog, PageInfo, Project, Skill, Social } from "@/utils/api/typings";
-import ContactSection from "@/components/ContactSection";
 
 type Props = {
   pageInfo: PageInfo;
@@ -27,7 +27,7 @@ type Props = {
 
 export default function Home({ pageInfo, projects, socials, skills, blogs }: Props) {
   return (
-    <div className="bg-gray-1000 h-screen snap-y snap-mandatory scroll-smooth overflow-x-hidden overflow-y-auto">
+    <div className="xl:scrollbar scrollbar-thumb-yellow-600 scrollbar-track-gray-700 bg-gray-1000 h-screen snap-y snap-mandatory scroll-smooth overflow-x-hidden overflow-y-auto">
       <Head>
         <title>{(pageInfo?.name ?? "") + " - Portfolio"}</title>
       </Head>

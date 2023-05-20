@@ -40,5 +40,7 @@
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "tailwind-scrollbar": "^3.0.4"
+  }
 }
