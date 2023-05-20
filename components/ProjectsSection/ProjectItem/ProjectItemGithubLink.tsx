@@ -12,7 +12,7 @@ export default function ProjectItemGithubLink({ url }: Props) {
     <Link
       href={url}
       target="_blank"
-      className="flex gap-1.5 items-center text-lg text-gray-300 hover:text-yellow-500"
+      className="flex gap-1.5 items-center text-md text-gray-300 hover:text-yellow-500"
     >
       <FontAwesomeIcon icon={faGithub} size="lg" />
       <span>View github repository</span>

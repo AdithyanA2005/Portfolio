@@ -9,10 +9,10 @@ export default function ProjectItemImage({ src }: Props) {
   return (
     <Image
       src={src}
-      alt="Skill icon"
+      alt="Project Cover"
       width={300}
       height={300}
-      className="object-cover md:max-h-72 h-full w-full md:w-auto rounded-t-[inherit] md:rounded-lg "
+      className="w-full object-cover rounded-t-[inherit]"
     />
   );
 }

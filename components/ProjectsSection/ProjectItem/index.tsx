@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import ProjectItemImage from "./ProjectItemImage";
 import ProjectItemTitle from "./ProjectItemTitle";
 import ProjectItemDescription from "./ProjectItemDescription";
@@ -18,10 +19,15 @@ type Props = {
 
 export default function ProjectItem({ imgSrc, title, description, skills, githubLink, liveLink }: Props) {
   return (
-    <div className="min-w-full flex md:gap-5  flex-col xl:flex-row items-center justify-center overflow-y-auto border-2 md:border-none border-yellow-500 md:bg-transparent rounded-xl snap-center">
+    <motion.article
+      initial={{ scale: 0.8, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="flex flex-col w-[85vw] max-h-min md:max-w-xl rounded-xl bg-black bg-opacity-40 snap-center"
+    >
       <ProjectItemImage src={imgSrc ?? ""} />
 
-      <div className="p-5 md:p-0 flex flex-col flex-1 justify-evenly gap-4">
+      <div className="flex-1 p-4 flex flex-col justify-evenly gap-4">
         <ProjectItemTitle text={title ?? ""} />
         <ProjectItemTags tags={skills} />
         <ProjectItemDescription text={description ?? ""} />
@@ -31,6 +37,6 @@ export default function ProjectItem({ imgSrc, title, description, skills, github
           {liveLink && <ProjectItemLiveLink url={liveLink} />}
         </div>
       </div>
-    </div>
+    </motion.article>
   );
 }
