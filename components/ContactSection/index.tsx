@@ -53,7 +53,7 @@ export default function ContactSection({ email, address, socials }: Props) {
             transition={{duration: 1}}
             noValidate={true}
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-4 w-full max-w-2xl"
+            className="flex flex-col gap-4 p-5 w-full max-w-2xl rounded-xl bg-black bg-opacity-30"
           >
             {/* Name Input Field */}
             <ContactInput

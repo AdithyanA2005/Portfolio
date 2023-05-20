@@ -18,7 +18,7 @@ export default function ContactInput({ type, control, name, label, placeholder, 
     className: `${errors[name]
       ? "border-red-500 border-opacity-70"
       : "border-transparent"
-      } block w-full p-2.5 border-2 rounded-md text-white bg-black bg-opacity-40 placeholder-gray-300 outline-none focus:ring-yellow-500 focus:border-yellow-500 transition-all
+      } block w-full p-2.5 border-2 rounded-md text-white bg-black bg-opacity-50 placeholder-gray-300 outline-none focus:ring-yellow-500 focus:border-yellow-500 transition-all
     `,
   };
 
