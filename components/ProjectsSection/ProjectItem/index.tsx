@@ -19,24 +19,25 @@ type Props = {
 
 export default function ProjectItem({ imgSrc, title, description, skills, githubLink, liveLink }: Props) {
   return (
-    <motion.article
-      initial={{ scale: 0.8, opacity: 0 }}
-      whileInView={{ scale: 1, opacity: 1 }}
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="flex flex-col w-[85vw] max-h-min md:max-w-xl rounded-xl bg-black bg-opacity-40 snap-center"
     >
-      <ProjectItemImage src={imgSrc ?? ""} />
+      <article className="flex h-full flex-col w-[85vw] sm:max-w-md rounded-xl bg-black bg-opacity-40 snap-center" >
+        <ProjectItemImage src={imgSrc ?? ""} />
 
-      <div className="flex-1 p-4 flex flex-col justify-evenly gap-4">
-        <ProjectItemTitle text={title ?? ""} />
-        <ProjectItemTags tags={skills} />
-        <ProjectItemDescription text={description ?? ""} />
+        <div className="flex-1 p-4 flex flex-col justify-evenly gap-4">
+          <ProjectItemTitle text={title ?? ""} />
+          <ProjectItemTags tags={skills} />
+          <ProjectItemDescription text={description ?? ""} />
 
-        <div className="mt-1 p-1 flex flex-col sm:flex-row justify-between gap-1">
-          {githubLink && <ProjectItemGithubLink url={githubLink} />}
-          {liveLink && <ProjectItemLiveLink url={liveLink} />}
+          <div className="mt-1 p-1 flex flex-col sm:flex-row justify-between gap-1">
+            {githubLink && <ProjectItemGithubLink url={githubLink} />}
+            {liveLink && <ProjectItemLiveLink url={liveLink} />}
+          </div>
         </div>
-      </div>
-    </motion.article>
+      </article>
+    </motion.div>
   );
 }

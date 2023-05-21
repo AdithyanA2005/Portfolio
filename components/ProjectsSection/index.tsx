@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import SectionWrapper from "../SectionWrapper";
 import SectionHeading from "../SectionHeading";
 import ProjectItem from "./ProjectItem";
@@ -17,12 +16,7 @@ export default function ProjectsSection({ projects }: Props) {
       <div className="h-full flex flex-col max-w-7xl mx-auto">
         <SectionHeading title="Projects" />
 
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="scrollbar-thin scrollbar-thumb-yellow-600 scrollbar-track-gray-700 z-10 grid grid-flow-col gap-4 overflow-x-scroll snap-x snap-mandatory"
-        >
+        <div className="scrollbar-thin scrollbar-thumb-yellow-600 scrollbar-track-gray-700 z-10 grid grid-flow-col gap-4 overflow-x-scroll snap-x snap-mandatory">
           {projects?.map((project) => (
             <ProjectItem
               key={project._id}
@@ -34,7 +28,7 @@ export default function ProjectsSection({ projects }: Props) {
               liveLink={project?.liveLink}
             />
           ))}
-        </motion.div>
+        </div>
       </div>
 
       <SkewRect from="left" />
