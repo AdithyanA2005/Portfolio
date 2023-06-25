@@ -16,7 +16,7 @@ export default function SkillsSection({ skills }: Props) {
       <div className="z-10 h-full flex flex-col max-w-7xl mx-auto">
         <SectionHeading title="Skills" />
 
-        <div className="z-[inherit] flex items-center justify-evenly flex-wrap overflow-y-auto gap-4 md:gap-7">
+        <div className="scrollbar-none z-[inherit] flex items-center justify-evenly flex-wrap overflow-y-auto gap-4 md:gap-7">
           {skills?.map((skill) => (
             <SkillItem
               key={skill?._id}

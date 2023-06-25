@@ -20,7 +20,7 @@ export default function BlogsSection({ blogs, blogsLink }: Props) {
         <SectionHeading title="Blogs" />
 
         {/* Blogs Container */}
-        <div className="scrollbar-thin scrollbar-thumb-yellow-600 scrollbar-track-gray-700 z-[inherit] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 overflow-y-auto gap-4">
+        <div className="scrollbar-none z-[inherit] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 overflow-y-auto gap-4">
           {blogs?.map((blog, index) => (
             <BlogItem
               key={index}

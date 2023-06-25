@@ -8,15 +8,8 @@
     @apply whitespace-nowrap hidden group-hover:block absolute bottom-full rounded-md mb-0.5 tracking-wide font-medium text-xs text-white py-1.5 px-2 bg-black bg-opacity-80
   }
 
-  /* Hide scrollbar */
-  .scrollbar-hide::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    background-color: transparent;
-  }
-
-  .scrollbar-hide {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+  /* Custom scrollbar Color */
+  .scrollbar-colors {
+    @apply scrollbar-thumb-yellow-600 scrollbar-track-gray-700;
   }
 }

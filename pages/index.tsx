@@ -27,7 +27,7 @@ type Props = {
 
 export default function Home({ pageInfo, projects, socials, skills, blogs }: Props) {
   return (
-    <div className="xl:scrollbar scrollbar-thumb-yellow-600 scrollbar-track-gray-700 bg-gray-1000 h-screen snap-y snap-mandatory scroll-smooth overflow-x-hidden overflow-y-auto">
+    <div className="scrollbar-thin xl:scrollbar scrollbar-colors bg-gray-1000 h-screen snap-y snap-mandatory scroll-smooth overflow-x-hidden overflow-y-auto">
       <Head>
         <title>{(pageInfo?.name ?? "") + " - Portfolio"}</title>
       </Head>

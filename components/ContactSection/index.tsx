@@ -35,7 +35,7 @@ export default function ContactSection({ email, address, socials }: Props) {
       <div className="z-10 h-full flex flex-col max-w-7xl mx-auto">
         <SectionHeading title="contact me" />
 
-        <div className="z-[inherit] px-1 pb-2 flex gap-8 flex-col lg:flex-row items-center justify-between overflow-y-auto overflow-x-hidden">
+        <div className="scrollbar-none z-[inherit] px-1 pb-2 flex gap-8 flex-col lg:flex-row items-center justify-between overflow-y-auto overflow-x-hidden">
           <motion.div 
             initial={{x: -200, opacity: 0}}
             whileInView={{x: 0, opacity: 1}}
