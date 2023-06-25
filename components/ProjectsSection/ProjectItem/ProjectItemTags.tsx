@@ -11,7 +11,7 @@ export default function ProjectItemTags({ tags }: Props) {
       {tags?.map((tag) => (
         <span
           key={tag._id}
-          className="px-2 py-1 text-xs font-semibold tracking-wider rounded-md text-gray-50 bg-gray-700"
+          className="px-2 py-1 text-xs tracking-wider rounded-md text-gray-50 bg-gray-800"
         >
           {tag?.title}
         </span>

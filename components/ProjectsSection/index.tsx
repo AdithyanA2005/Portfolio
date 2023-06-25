@@ -16,7 +16,7 @@ export default function ProjectsSection({ projects }: Props) {
       <div className="h-full flex flex-col max-w-7xl mx-auto">
         <SectionHeading title="Projects" />
 
-        <div className="scrollbar-thin scrollbar-colors z-10 grid grid-flow-col gap-4 overflow-x-scroll snap-x snap-mandatory">
+        <div className="scrollbar-none z-10 overflow-y-scroll grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {projects?.map((project) => (
             <ProjectItem
               key={project._id}

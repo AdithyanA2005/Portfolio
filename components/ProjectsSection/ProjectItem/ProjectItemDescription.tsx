@@ -6,7 +6,7 @@ type Props = {
 
 export default function ProjectItemDescription({ text }: Props) {
   return (
-    <p className="text-gray-300 tracking-wide md:leading-7 text-md">
+    <p className="text-gray-300 tracking-wide md:leading-7">
       {text}
     </p>
   );
