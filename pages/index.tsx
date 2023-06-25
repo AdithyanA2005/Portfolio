@@ -5,6 +5,7 @@ import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import BlogsSection from "@/components/BlogsSection";
+import QualificationsSection from "@/components/QualificationsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import fetchBlogs from "@/utils/api/fetch/fetchBlogs";
@@ -15,9 +16,11 @@ import fetchPageInfo from "@/utils/api/fetch/fetchPageInfo";
 import { urlForImage } from "@/sanity/lib/image";
 import { navLinks } from "@/utils/navigation";
 import { GetStaticProps } from "next";
-import { Blog, PageInfo, Project, Skill, Social } from "@/utils/api/typings";
+import { Blog, PageInfo, Project, Qualification, Skill, Social } from "@/utils/api/typings";
+import fetchQualifications from "@/utils/api/fetch/fetchQualifications";
 
 type Props = {
+  qualifications: Qualification[];
   pageInfo: PageInfo;
   projects: Project[];
   socials: Social[];
@@ -25,7 +28,7 @@ type Props = {
   blogs: Blog[];
 };
 
-export default function Home({ pageInfo, projects, socials, skills, blogs }: Props) {
+export default function Home({ qualifications,pageInfo, projects, socials, skills, blogs }: Props) {
   return (
     <div className="scrollbar-thin xl:scrollbar scrollbar-colors bg-gray-1000 h-screen snap-y snap-mandatory scroll-smooth overflow-x-hidden overflow-y-auto">
       <Head>
@@ -60,6 +63,8 @@ export default function Home({ pageInfo, projects, socials, skills, blogs }: Pro
         blogsLink={pageInfo?.blogsUrl}
       />
 
+      <QualificationsSection qualifications={qualifications ?? undefined} />
+
       <ContactSection
         email={pageInfo?.email}
         address={pageInfo?.address}
@@ -77,13 +82,14 @@ export default function Home({ pageInfo, projects, socials, skills, blogs }: Pro
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
+  const qualifications: Qualification[] = await fetchQualifications();
   const projects: Project[] = await fetchProjects();
   const socials: Social[] = await fetchSocials();
   const skills: Skill[] = await fetchSkills();
   const blogs: Blog[] = await fetchBlogs();
 
   return {
-    props: { pageInfo, projects, socials, skills, blogs },
+    props: { qualifications, pageInfo, projects, socials, skills, blogs },
     revalidate: 60,
   };
 };

@@ -66,6 +66,7 @@ export interface PageInfo extends SanityBody {
 }
 
 export interface Social extends SanityBody {
+  _type: "social";
   title: string;
   url: string;
 }
@@ -85,4 +86,10 @@ export interface Project extends SanityBody {
   technologies: Skill[];
   githubLink: string;
   liveLink: string;
+}
+
+export interface Qualification extends SanityBody {
+  _type: "social";
+  title: string;
+  image: SanityImage;
 }

@@ -105,7 +105,7 @@ export default function ContactSection({ email, address, socials }: Props) {
         </div>
       </div>
 
-      <SkewRect from="left" />
+      <SkewRect from="right" />
     </SectionWrapper>
   );
 }
