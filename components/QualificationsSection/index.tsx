@@ -19,6 +19,7 @@ export default function QualificationsSection({ qualifications }: Props) {
         <div className="scrollbar-none z-10 overflow-y-scroll grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {qualifications?.map((qualification) => (
             <QualificationItem
+              key={qualification._id}
               title={qualification.title ?? undefined}
               imgSrc={qualification.image ? urlForImage(qualification.image).url() : undefined}
             />
