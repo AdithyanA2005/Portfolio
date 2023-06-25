@@ -25,17 +25,13 @@ export default function QualificationItem({ title, imgSrc }: Props) {
       initial={{ x: -150, scale: 0, opacity: 0 }}
       whileInView={{ x: 0, scale: 1, opacity: 1 }}
       transition={{ duration: 1 }}
-      className={`${isExpanded ? "absolute mt-20 grid place-items-center inset-0 z-40" : "group relative"}`}
+      className={`${isExpanded ? "absolute mt-20 grid place-items-center inset-0 z-40 bg-black bg-opacity-50 backdrop-blur-sm" : "group relative"}`}
     >
       <img
         ref={imgRef}
         className="cursor-pointer z-50 mx-auto w-[90%] max-w-5xl"
         src={imgSrc ?? ""}
       />
-
-      <span className="tooltip">
-        {title ?? ""}
-      </span>
     </motion.div>
   );
 }
