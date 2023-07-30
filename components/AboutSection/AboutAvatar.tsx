@@ -20,7 +20,7 @@ export default function AboutAvatar({ imageUrl }: Props) {
         height={224}
         className="flex-1 rounded-full md:rounded-lg object-contain"
         priority={true}
-        alt="Adithyan"
+        alt="Adithyan A"
       />
     </motion.div>
   );

@@ -31,7 +31,7 @@ export default function AboutDogAndOwner({ }: Props) {
         className="hidden lg:flex z-[inherit] absolute bottom-0 max-h-56 h-[30%] aspect-square rounded-lg animate-pulse shadow-lg"
       >
         <Image
-          alt="Person"
+          alt="Dog Owner"
           src="/photographer.svg"
           width={0}
           height={0}

@@ -16,7 +16,7 @@ export default function FooterSocials({ socials, emailLink }: Props) {
             fgColor="rgba(209, 213, 219, 0.8)"
             bgColor="transparent"
             style={{ height: "100%", width: "100%" }}
-            target="_blank"
+            target="_blank" 
             url={social.url}
           />
 
