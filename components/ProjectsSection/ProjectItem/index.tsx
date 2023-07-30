@@ -32,7 +32,11 @@ export default function ProjectItem({ imgSrc, title, description, skills, github
         <ProjectItemDescription text={description ?? ""} />
 
         <div className="mt-1 p-1 flex justify-start gap-4">
-          <ProjectItemLink githubUrl={githubLink} liveUrl={liveLink} />
+          <ProjectItemLink
+            title={title}
+            githubUrl={githubLink}
+            liveUrl={liveLink}
+          />
         </div>
       </div>
     </motion.article>
