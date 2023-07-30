@@ -12,7 +12,6 @@ export default function ProjectItemImage({ src }: Props) {
       alt="Project Cover"
       width={400}
       height={224}
-      priority={true}
       className="w-full object-cover rounded-t-[inherit]"
     />
   );
