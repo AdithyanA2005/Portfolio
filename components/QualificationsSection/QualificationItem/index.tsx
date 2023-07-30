@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 type Props = {
   title: string | undefined;
@@ -27,10 +28,13 @@ export default function QualificationItem({ title, imgSrc }: Props) {
       transition={{ duration: 1 }}
       className={`${isExpanded ? "absolute mt-20 grid place-items-center inset-0 z-40 bg-black bg-opacity-50 backdrop-blur-sm" : "group relative"}`}
     >
-      <img
+      <Image
         ref={imgRef}
+        alt={title ?? ""}
         className="cursor-pointer z-50 mx-auto w-[90%] max-w-5xl"
         src={imgSrc ?? ""}
+        width={isExpanded ? 1000 : 500}
+        height={isExpanded ? 800 : 400}
       />
     </motion.div>
   );

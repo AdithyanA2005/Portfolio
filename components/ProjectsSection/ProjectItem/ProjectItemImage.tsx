@@ -10,9 +10,10 @@ export default function ProjectItemImage({ src }: Props) {
     <Image
       src={src}
       alt="Project Cover"
-      width={300}
-      height={300}
-      className="w-full h-56 object-cover rounded-t-[inherit]"
+      width={400}
+      height={224}
+      priority={true}
+      className="w-full object-cover rounded-t-[inherit]"
     />
   );
 }

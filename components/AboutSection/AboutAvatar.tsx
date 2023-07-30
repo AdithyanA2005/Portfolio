@@ -16,9 +16,10 @@ export default function AboutAvatar({ imageUrl }: Props) {
     >
       <Image
         src={imageUrl}
-        width={200}
-        height={200}
+        width={224}
+        height={224}
         className="flex-1 rounded-full md:rounded-lg object-contain"
+        priority={true}
         alt="Adithyan"
       />
     </motion.div>
