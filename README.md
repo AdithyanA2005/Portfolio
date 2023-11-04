@@ -1,7 +1,10 @@
 # My Portfolio
 
-## Technologies Used
+## See my live portfolio 
+Checkout the portfolio here: 
+[Adithyan's Portfolio](https://adithyana.vercel.app/)
 
+## Technologies Used
 <p>
   <!-- TailwindCSS-Icon -->
   <img title="TailwindCSS" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="tailwind" width="35" height="35" />        
