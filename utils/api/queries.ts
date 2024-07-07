@@ -11,17 +11,20 @@ export const qualificationsQuery = groq`*[_type == "qualification"]`;
 export const hashnodeQuery = `
 query {
   user(username: "adithyana") {
-      publication {
-        posts(page: 0) {
+    posts(pageSize: 10, page: 1) {
+      edges {
+        node {
+          id
           title
-          slug
+          url
           brief
-          coverImage
-          dateAdded
-          cuid
-          slug
+          coverImage {
+            url
+          }
+          publishedAt
         }
       }
     }
   }
+}
 `;

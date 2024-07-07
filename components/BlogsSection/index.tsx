@@ -28,7 +28,7 @@ export default function BlogsSection({ blogs, blogsLink }: Props) {
               title={blog?.title}
               brief={blog?.brief}
               imgSrc={blog?.coverImage}
-              dateAdded={blog?.dateAdded}
+              publishedAt={blog?.publishedAt}
             />
           ))}
 

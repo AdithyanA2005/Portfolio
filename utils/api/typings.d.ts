@@ -4,33 +4,27 @@ export interface Blog {
   url: string;
   brief: string;
   coverImage: string;
-  dateAdded: string;
-}
-
-// HASHNODE BLOG SERVICE
-export interface HashnodePost {
-  title: string;
-  slug: string;
-  cuid: string;
-  brief: string;
-  coverImage: string;
-  dateAdded: string;
-}
-
-interface HashnodePublication {
-  posts: HashnodePost[];
-}
-
-interface HashnodeUser {
-  publication: HashnodePublication;
-}
-
-interface HashnodeData {
-  user: HashnodeUser;
+  publishedAt: Date;
 }
 
 export interface HashnodeResponse {
-  data: HashnodeData;
+  data: {
+    user: {
+      posts: {
+        edges: {
+          node: {
+            title: string;
+            url: string;
+            brief: string;
+            coverImage: {
+              url: string;
+            };
+            publishedAt: Date;
+          }
+        }[]
+      }
+    }
+  };
 }
 
 // SANITY CDN

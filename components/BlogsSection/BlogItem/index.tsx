@@ -8,11 +8,11 @@ type Props = {
   title: string | undefined;
   brief: string | undefined;
   imgSrc: string | undefined;
-  dateAdded: string | undefined;
+  publishedAt: Date | undefined;
 };
 
-export default function BlogItem({ url, title, brief, imgSrc, dateAdded }: Props) {
-  const date = new Date(dateAdded ?? "");
+export default function BlogItem({ url, title, brief, imgSrc, publishedAt }: Props) {
+  const date = new Date(publishedAt ?? "");
   const dateStr = date.toLocaleDateString("en-US", {
     day: "numeric",
     month: "short",
