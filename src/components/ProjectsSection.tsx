@@ -41,14 +41,23 @@ export default function ProjectsSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section id="projects" className="py-32 bg-white w-full relative z-20">
+    <section
+      id="projects"
+      className="py-32 w-full relative z-20 transition-colors duration-300"
+      style={{ background: "var(--background)" }}
+    >
       <div className="container mx-auto px-6 max-w-[1400px]">
         {/* Section Header */}
-        <div className="flex justify-between items-end mb-24 border-b border-stone-200 pb-12">
-          <h2 className="text-xl md:text-2xl font-medium tracking-tight uppercase text-stone-400">
+        <div
+          className="flex justify-between items-end mb-24 border-b pb-12"
+          style={{ borderColor: "var(--border)" }}
+        >
+          <h2 className="text-xl md:text-2xl font-medium tracking-tight uppercase" style={{ color: "var(--muted)" }}>
             Selected Works
           </h2>
-          <span className="text-stone-400 font-mono text-sm">({projects.length})</span>
+          <span className="font-mono text-sm" style={{ color: "var(--muted-light)" }}>
+            ({projects.length})
+          </span>
         </div>
 
         {/* Project List */}
@@ -62,26 +71,31 @@ export default function ProjectsSection() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block border-b border-stone-200 py-10 md:py-14 transition-colors duration-500 hover:bg-stone-50 cursor-pointer"
+                className="group block border-b py-10 md:py-14 transition-all duration-500 cursor-pointer"
+                style={{
+                  borderColor: "var(--border)",
+                  background: isHovered ? "var(--hover-bg, rgba(128,128,128,0.05))" : "transparent",
+                }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                {/* Top row: number, title, meta */}
+                {/* Top row */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-12 px-4 md:px-8">
                   <div className="flex items-baseline gap-4 md:gap-8 flex-1 min-w-0">
-                    <span className="text-stone-400 font-mono text-sm shrink-0 hidden md:block">
+                    <span className="font-mono text-sm shrink-0 hidden md:block" style={{ color: "var(--muted-light)" }}>
                       {project.index}
                     </span>
                     <h3
-                      className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-[#0a0a0a] group-hover:translate-x-3 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] uppercase leading-tight"
+                      className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter group-hover:translate-x-3 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] uppercase leading-tight"
+                      style={{ color: "var(--foreground)" }}
                     >
                       {project.title}
                     </h3>
                   </div>
 
-                  <div className="flex md:flex-col items-center md:items-end gap-4 md:gap-1 shrink-0 px-0 md:px-0 text-stone-500 text-sm md:text-base">
+                  <div className="flex md:flex-col items-center md:items-end gap-4 md:gap-1 shrink-0 text-sm md:text-base" style={{ color: "var(--muted)" }}>
                     <span className="font-medium">{project.type}</span>
-                    <span className="font-mono text-stone-400">{project.year}</span>
+                    <span className="font-mono" style={{ color: "var(--muted-light)" }}>{project.year}</span>
                   </div>
                 </div>
 
@@ -97,24 +111,26 @@ export default function ProjectsSection() {
                       className="overflow-hidden"
                     >
                       <div className="mt-6 px-4 md:px-8 md:pl-[calc(2rem+2.5rem+2rem)] flex flex-col md:flex-row md:items-end justify-between gap-6">
-                        {/* Description */}
-                        <p className="text-stone-500 text-base md:text-lg max-w-2xl leading-relaxed">
+                        <p className="text-base md:text-lg max-w-2xl leading-relaxed" style={{ color: "var(--muted)" }}>
                           {project.description}
                         </p>
 
-                        {/* Stack tags + Arrow */}
                         <div className="flex flex-col items-start md:items-end gap-4 shrink-0">
                           <div className="flex flex-wrap gap-2 justify-end">
                             {project.stack.map((tech) => (
                               <span
                                 key={tech}
-                                className="px-3 py-1 rounded-full border border-stone-300 text-stone-600 text-xs font-mono"
+                                className="px-3 py-1 rounded-full border text-xs font-mono"
+                                style={{ borderColor: "var(--border)", color: "var(--muted)" }}
                               >
                                 {tech}
                               </span>
                             ))}
                           </div>
-                          <div className="flex items-center gap-2 text-[#0a0a0a] font-semibold text-sm uppercase tracking-wider">
+                          <div
+                            className="flex items-center gap-2 font-semibold text-sm uppercase tracking-wider"
+                            style={{ color: "var(--foreground)" }}
+                          >
                             <span>View on GitHub</span>
                             <ArrowUpRight className="w-4 h-4" />
                           </div>

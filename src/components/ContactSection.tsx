@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-32 relative overflow-hidden bg-stone-900 text-white rounded-[3rem] mx-4 mb-4 md:mx-6 md:mb-6 mt-16 md:mt-32 shadow-2xl">
+    <section id="contact" className="py-32 relative overflow-hidden bg-stone-900 dark:bg-stone-900 text-white rounded-[3rem] mx-4 mb-4 md:mx-6 md:mb-6 mt-16 md:mt-32 shadow-2xl">
       {/* Glows */}
       <div className="absolute bottom-0 left-1/2 -z-10 -translate-x-1/2 translate-y-1/2 w-[800px] h-[800px] bg-blue-500 rounded-full blur-[200px] opacity-30 pointer-events-none" />
       <div className="absolute top-0 right-0 -z-10 w-[500px] h-[500px] bg-purple-500 rounded-full blur-[150px] opacity-20 pointer-events-none" />

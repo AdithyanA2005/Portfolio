@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import FluidCursor from "@/components/FluidCursor";
 import Header from "@/components/Header";
+import Providers from "@/components/Providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Creative Developer",
-  description: "A highly animated sequence portfolio",
+  title: "Adithyan A | Full-Stack Software Engineer",
+  description: "Portfolio of Adithyan A — Full-Stack Software Engineer, CS Student, and Linux enthusiast.",
 };
 
 export default function RootLayout({
@@ -25,14 +26,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-blue-100 selection:text-blue-900`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
       >
-        {/* The cursor trail canvas lives above everything but doesn't block clicks */}
-        <FluidCursor />
-        <Header />
-        {children}
+        <Providers>
+          {/* The cursor trail canvas lives above everything but doesn't block clicks */}
+          <FluidCursor />
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );
