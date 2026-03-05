@@ -44,10 +44,10 @@ export default function AboutSection() {
               className="mt-16 md:mt-24 max-w-2xl"
             >
               <p className="text-stone-600 text-xl md:text-2xl leading-relaxed mb-8 font-medium tracking-tight">
-                With over a decade of experience in the digital landscape, my approach is rooted in the belief that code should be as beautiful as the interface it powers.
+                Currently pursuing my degree in Computer Science, my approach is rooted in the belief that code should be as beautiful as the interface it powers.
               </p>
               <p className="text-stone-500 text-lg leading-relaxed">
-                I specialize in crafting high-end, award-winning digital experiences. From immersive WebGL interactions to robust, scalable enterprise architectures, I bring concepts to life through meticulous attention to detail and an uncompromising standard for quality.
+                I specialize in crafting high-end digital experiences. From immersive interactions to robust, scalable backend architectures, I bring concepts to life through meticulous attention to detail and an uncompromising standard for quality.
               </p>
             </motion.div>
           </div>
@@ -62,8 +62,8 @@ export default function AboutSection() {
                viewport={{ once: true, margin: "-100px" }}
                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="text-6xl font-black tracking-tighter text-[#0a0a0a] mb-2">10+</div>
-              <div className="text-stone-400 uppercase tracking-widest text-xs font-bold font-mono">Years Experience</div>
+              <div className="text-6xl font-black tracking-tighter text-[#0a0a0a] mb-2 uppercase">B.Tech</div>
+              <div className="text-stone-400 uppercase tracking-widest text-xs font-bold font-mono">CS Student</div>
             </motion.div>
 
             {/* Editorial Skills List */}
