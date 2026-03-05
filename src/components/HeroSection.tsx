@@ -1,64 +1,84 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
+  // Animation variants for the staggering text reveal
   const container = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
       },
     },
   };
 
-  const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100, damping: 12 } },
+  // Mask reveal animation (words slide up from behind a hidden overflow box)
+  const textReveal = {
+    hidden: { y: "120%", rotate: 2 },
+    show: { 
+      y: "0%", 
+      rotate: 0,
+      transition: { 
+        type: "spring" as const, 
+        stiffness: 70, 
+        damping: 15,
+        mass: 1.5
+      } 
+    },
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-1/2 left-1/2 -z-10 -translate-x-1/2 -translate-y-[40%] w-[800px] h-[800px] bg-blue-100 rounded-full blur-[120px] opacity-50 pointer-events-none" />
-      <div className="absolute top-1/4 right-[10%] -z-10 w-[400px] h-[400px] bg-purple-100 rounded-full blur-[90px] opacity-40 pointer-events-none" />
-      <div className="absolute bottom-1/4 left-[10%] -z-10 w-[300px] h-[300px] bg-cyan-100 rounded-full blur-[80px] opacity-40 pointer-events-none" />
-
+    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-white">
       <motion.div 
         variants={container}
         initial="hidden"
         animate="show"
-        className="container mx-auto px-6 max-w-4xl text-center relative z-10"
+        className="container mx-auto px-6 w-full max-w-[1400px] flex flex-col justify-center relative z-10"
       >
-        <motion.div variants={item} className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100/50 text-blue-600 font-medium text-sm shadow-sm">
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
-          </span>
-          Available for new opportunities
-        </motion.div>
-        
-        <motion.h1 variants={item} className="text-6xl md:text-8xl lg:text-[100px] font-bold tracking-tighter text-stone-900 mb-6 leading-[1.05]">
-          Crafting Digital <br className="hidden md:block"/>
-          <span className="text-gradient drop-shadow-sm">Experiences.</span>
-        </motion.h1>
+        {/* Editorial Typography Lockup */}
+        <div className="flex flex-col uppercase font-black text-[#0a0a0a] tracking-tighter leading-[0.85] text-[11vw] md:text-[7rem] lg:text-[10rem] xl:text-[13rem] w-full mix-blend-difference">
+          
+          <div className="overflow-hidden flex justify-start">
+            <motion.span variants={textReveal} className="origin-bottom-left pb-4 whitespace-nowrap">Full-Stack</motion.span>
+          </div>
+          
+          <div className="overflow-hidden flex justify-end">
+             <motion.span variants={textReveal} className="origin-bottom-left pb-4 text-stone-300 whitespace-nowrap">Software</motion.span>
+          </div>
+          
+          <div className="overflow-hidden flex items-center justify-between gap-8 mt-4 md:mt-0 pb-4">
+             <motion.div 
+               initial={{ width: 0 }}
+               animate={{ width: "100%" }}
+               transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: 0.8 }}
+               className="h-[0.5vw] md:h-2 bg-[#0a0a0a] origin-left hidden sm:block"
+             />
+             <motion.span variants={textReveal} className="origin-bottom-left pl-4 whitespace-nowrap">Engineer</motion.span>
+          </div>
 
-        <motion.p variants={item} className="text-lg md:text-2xl text-stone-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-          I'm a creative developer passionate about building highly interactive, beautiful, and performant web applications.
-        </motion.p>
+        </div>
 
-        <motion.div variants={item} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#projects" className="group flex items-center gap-2 px-8 py-4 bg-stone-900 text-white rounded-full font-medium hover:bg-blue-600 transition-all duration-300 shadow-[0_0_40px_-10px_rgba(37,99,235,0.4)] hover:shadow-[0_0_60px_-10px_rgba(37,99,235,0.6)] hover:-translate-y-1">
-            View My Work
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a href="#about" className="px-8 py-4 bg-white/70 backdrop-blur-sm text-stone-900 rounded-full font-medium border border-stone-200 hover:border-stone-300 hover:bg-white transition-all duration-300">
-            Learn More
-          </a>
-        </motion.div>
+        {/* Handcrafted Subtext */}
+        <div className="mt-12 md:mt-24 grid md:grid-cols-2 gap-8 md:gap-24 text-stone-500 font-medium text-lg md:text-xl leading-relaxed max-w-4xl tracking-tight">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1 }}
+          >
+            I'm Adithyan A — a full-stack engineer and computer science enthusiast. I love turning complex problems into elegant, intuitive digital solutions.
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.2 }}
+          >
+            When I'm not configuring my Linux terminal or exploring open-source, I'm building scalable web applications with React, Next.js, and PostgreSQL.
+          </motion.div>
+        </div>
+
       </motion.div>
     </section>
   );

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafaf9; /* Warm off-white */
-  --foreground: #1c1917; /* Stone 900 for soft contrast */
+  --background: #ffffff; /* Stark white */
+  --foreground: #0a0a0a; /* Almost pure black */
 }
 
 @theme inline {
@@ -18,23 +18,22 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  /* Add subtle grain for texture */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
 }
 
 ::selection {
-  background-color: #dbeafe;
-  color: #1e3a8a;
+  background-color: var(--foreground);
+  color: var(--background);
 }
 
 @utility glass {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-@utility text-gradient {
-  background: linear-gradient(135deg, #1d4ed8, #0ea5e9, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Utility for smooth staggered text reveals */
+@utility text-mask {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }

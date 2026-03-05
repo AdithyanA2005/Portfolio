@@ -27,21 +27,22 @@ export default function ContactSection() {
           <p className="text-stone-400 text-xl mb-16 md:text-2xl max-w-2xl mx-auto font-light">
             I'm currently available for freelance work and open to new opportunities. Let's collaborate.
           </p>
-          <a href="mailto:hello@example.com" className="group inline-flex items-center gap-2 text-3xl md:text-5xl font-light hover:text-white transition-colors pb-2 relative">
-            hello@example.com 
-            <ArrowUpRight className="w-8 h-8 md:w-12 md:h-12 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-300" />
+          <a href="mailto:adithyanthedev@gmail.com" className="group inline-flex items-center gap-2 text-3xl md:text-4xl lg:text-5xl font-light hover:text-white transition-colors pb-2 relative break-all selection:bg-blue-500/30">
+            adithyanthedev@gmail.com 
+            <ArrowUpRight className="w-8 h-8 md:w-12 md:h-12 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-300 flex-shrink-0" />
             <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white/20 group-hover:bg-gradient-to-r from-blue-400 to-purple-400 transition-all duration-300"></span>
           </a>
         </motion.div>
         
         <div className="mt-40 pt-10 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-stone-400 text-sm gap-6 font-medium">
-          <p>© {new Date().getFullYear()} Adithya. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Adithyan A. All rights reserved.</p>
           <div className="flex gap-8">
-            {["Twitter", "LinkedIn", "GitHub", "Dribbble"].map((social) => (
-               <a key={social} href="#" className="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-white after:origin-right after:scale-x-0 hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300">
-                 {social}
-               </a>
-            ))}
+            <a href={`${process.env.NEXT_PUBLIC_BASE_URL || ''}/goto/github`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-white after:origin-right after:scale-x-0 hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300">
+              GitHub
+            </a>
+            <a href={`${process.env.NEXT_PUBLIC_BASE_URL || ''}/goto/linkedin`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-white after:origin-right after:scale-x-0 hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300">
+              LinkedIn
+            </a>
           </div>
         </div>
       </div>

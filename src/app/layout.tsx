@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import CursorTrail from "@/components/CursorTrail";
+import FluidCursor from "@/components/FluidCursor";
 import Header from "@/components/Header";
 
 const geistSans = Geist({
@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-blue-100 selection:text-blue-900`}
       >
         {/* The cursor trail canvas lives above everything but doesn't block clicks */}
-        <CursorTrail />
+        <FluidCursor />
         <Header />
         {children}
       </body>

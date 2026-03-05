@@ -1,106 +1,119 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import Image from "next/link";
 
 export default function ProjectsSection() {
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  
+  // Mouse position tracking for floating images
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   const projects = [
     {
-      title: "E-Commerce Reimagined",
-      description: "A headless commerce experience built with Next.js and Shopify, featuring high-performance 3D product previews and seamless checkout flows.",
-      tags: ["Next.js", "Three.js", "Tailwind", "Shopify API"],
-      color: "from-blue-500/20 to-cyan-500/20",
-      accent: "bg-blue-500"
+      title: "Tally Attendance Tracker",
+      type: "Flutter • Dart",
+      year: "2024",
+      imageColor: "bg-blue-900",
+      link: "https://github.com/AdithyanA2005/tally-attendance-tracker"
     },
     {
-      title: "Fintech Dashboard",
-      description: "A highly interactive analytics dashboard with real-time data visualization, custom charting, and a comprehensive dark/light mode design system.",
-      tags: ["React", "Framer Motion", "D3.js", "TypeScript"],
-      color: "from-purple-500/20 to-pink-500/20",
-      accent: "bg-purple-500"
+      title: "Kanban Board",
+      type: "Next.js • TypeScript",
+      year: "2024",
+      imageColor: "bg-purple-900",
+      link: "https://github.com/AdithyanA2005/TodoList_Kanban_Board_NextJs"
     },
     {
-      title: "Creative Agency Hub",
-      description: "An award-winning portfolio website for a design agency. Built with a focus on buttery smooth scroll animations and typography-led layouts.",
-      tags: ["Vue", "GSAP", "Lenis Scroll"],
-      color: "from-amber-500/20 to-orange-500/20",
-      accent: "bg-amber-500"
+      title: "Coder Codes",
+      type: "MDX • React",
+      year: "2024",
+      imageColor: "bg-amber-900",
+      link: "https://github.com/AdithyanA2005/coder-codes"
     }
   ];
 
   return (
-    <section id="projects" className="py-32 bg-stone-100 w-full relative">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6"
-        >
-          <div className="max-w-xl">
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">Featured Work.</h2>
-            <p className="text-stone-600 text-lg md:text-xl">A selection of recent projects that showcase my focus on performance, aesthetics, and user experience.</p>
-          </div>
-          <button className="px-8 py-4 border-2 border-stone-200 rounded-full hover:border-stone-900 hover:bg-stone-900 hover:text-white transition-all w-fit font-medium">
-            View All Projects
-          </button>
-        </motion.div>
+    <section id="projects" ref={sectionRef} className="py-32 bg-white w-full relative z-20">
+      <div className="container mx-auto px-6 max-w-[1400px]">
+        {/* Section Header */}
+        <div className="flex justify-between items-end mb-24 border-b border-stone-200 pb-12">
+          <h2 className="text-xl md:text-2xl font-medium tracking-tight uppercase text-stone-400">Selected Works</h2>
+          <span className="text-stone-400 font-mono text-sm">({projects.length})</span>
+        </div>
 
-        <div className="grid gap-12">
+        {/* Project List */}
+        <div className="flex flex-col relative">
           {projects.map((project, index) => (
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+            <a 
               key={index}
-              className="group relative bg-white rounded-[2.5rem] p-8 md:p-12 overflow-hidden border border-stone-200/60 shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500"
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative border-b border-stone-200 py-12 md:py-20 flex flex-col md:flex-row md:items-center justify-between transition-colors duration-500 hover:bg-stone-50 cursor-pointer"
+              onMouseEnter={() => setHoveredProject(index)}
+              onMouseLeave={() => setHoveredProject(null)}
             >
-              {/* Dynamic hover gradient background */}
-              <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-br ${project.color} transition-opacity duration-700 pointer-events-none`} />
               
-              <div className="relative z-10 grid lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-20 items-center">
-                <div className="order-2 lg:order-1">
-                  <h3 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">{project.title}</h3>
-                  <p className="text-stone-600 text-lg mb-8 leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-10">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="px-4 py-2 bg-stone-100 text-stone-600 rounded-full text-sm font-medium border border-stone-100 group-hover:bg-white group-hover:border-stone-200 transition-colors">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <button className="flex items-center gap-2 px-6 py-3 bg-stone-900 text-white rounded-full font-medium hover:bg-blue-600 hover:-translate-y-1 transition-all shadow-lg hover:shadow-blue-500/20">
-                      Live Preview
-                      <ExternalLink className="w-4 h-4" />
-                    </button>
-                    <button className="p-3 border-2 border-stone-200 text-stone-700 rounded-full hover:bg-stone-50 hover:border-stone-300 hover:-translate-y-1 transition-all">
-                      <Github className="w-5 h-5" />
-                    </button>
-                  </div>
-                </div>
-                
-                <div className="order-1 lg:order-2 aspect-[4/3] bg-stone-100 rounded-3xl overflow-hidden relative group-hover:shadow-2xl transition-all duration-700 transform group-hover:scale-[1.02] border border-stone-200/50 flex flex-col">
-                  {/* Mock Window frame */}
-                  <div className="h-10 bg-stone-200/50 border-b border-stone-200 flex items-center px-4 gap-2 backdrop-blur-sm z-20">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                    <div className="w-3 h-3 rounded-full bg-green-400" />
-                  </div>
-                  {/* Decorative placeholder image */}
-                  <div className="flex-1 relative bg-stone-50 overflow-hidden group-hover:scale-105 transition-transform duration-1000 ease-out">
-                    <div className={`absolute inset-0 bg-gradient-to-tr ${project.color} opacity-40`} />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className={`w-32 h-32 rounded-full ${project.accent} blur-[60px] opacity-40 group-hover:opacity-60 group-hover:scale-150 transition-all duration-700`} />
-                    </div>
-                  </div>
-                </div>
+              {/* Project Title */}
+              <div className="relative z-10 flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 pl-4 md:pl-8">
+                 <span className="text-stone-400 font-mono text-sm md:text-base hidden md:block">0{index + 1}</span>
+                 <h3 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter text-[#0a0a0a] group-hover:translate-x-4 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] uppercase">
+                   {project.title}
+                 </h3>
               </div>
-            </motion.div>
+              
+              {/* Project Meta */}
+              <div className="relative z-10 flex justify-between md:flex-col items-start md:items-end mt-6 md:mt-0 pr-4 md:pr-8 text-stone-500 text-sm md:text-lg font-medium">
+                 <span>{project.type}</span>
+                 <span className="font-mono">{project.year}</span>
+              </div>
+              
+            </a>
           ))}
+
+          {/* Floating Hover Images (Desktop Only) */}
+          <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-50 hidden lg:block overflow-hidden">
+             {projects.map((project, index) => {
+               const isActive = hoveredProject === index;
+               
+               // Calculate offset so the image centers on the cursor
+               const x = mousePosition.x - 200; // Half of image width
+               const y = mousePosition.y - 150; // Half of image height
+
+               return (
+                 <motion.div
+                   key={`img-${index}`}
+                   className={`absolute w-[400px] h-[300px] object-cover rounded-xl shadow-2xl ${project.imageColor} mix-blend-multiply`}
+                   initial={{ opacity: 0, scale: 0.8 }}
+                   animate={{ 
+                     opacity: isActive ? 1 : 0, 
+                     scale: isActive ? 1 : 0.8,
+                     x: x,
+                     y: y
+                   }}
+                   transition={{ 
+                     opacity: { duration: 0.4 },
+                     scale: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+                     x: { duration: 0.1, ease: "linear" },
+                     y: { duration: 0.1, ease: "linear" }
+                   }}
+                 />
+               );
+             })}
+          </div>
+
         </div>
       </div>
     </section>
