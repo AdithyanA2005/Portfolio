@@ -16,9 +16,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Adithyan A | Full-Stack Software Engineer",
+  title: "Adithyan A — Full-Stack Software Engineer",
   description: "Portfolio of Adithyan A — Full-Stack Software Engineer, CS Student, and Linux enthusiast.",
 };
+
 
 export default function RootLayout({
   children,
